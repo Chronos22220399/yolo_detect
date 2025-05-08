@@ -1,0 +1,5 @@
+/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/YOLO_QT_DETECTOR.dir
+/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/edit_cache.dir
+/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/rebuild_cache.dir
+/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/YOLO_QT_DETECTOR_autogen_timestamp_deps.dir
+/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/YOLO_QT_DETECTOR_autogen.dir
