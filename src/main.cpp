@@ -2,7 +2,64 @@
 #include <iostream>
 // third_party
 #include <onnxruntime/onnxruntime_cxx_api.h>
-#include <opencv4/opencv2/opencv.hpp>
+#include <opencv2/dnn/dnn.hpp>
+#include <opencv2/opencv.hpp>
+
+struct Detection {
+  cv::Rect box;
+  float confidence;
+  int class_id;
+};
+
+static const std::array<std::string, 9> class_names = {
+    "angry",   "contempt", "disgust", "fear",     "happy",
+    "natural", "sad",      "sleepy",  "surprised"};
+
+std::vector<Detection> parseYoloOutput(float *data,
+                                       const std::vector<int64_t> &output_shape,
+                                       float conf_threshold, int img_w,
+                                       int img_h) {
+  std::vector<Detection> results;
+
+  int64_t num_boxes = output_shape[1];
+  int64_t num_attrs = output_shape[2];
+
+  for (int i = 0; i < num_boxes; ++i) {
+    float *ptr = data + i * num_attrs;
+    // 0-3: x, y, width, height
+    // 4: confidence
+    // 5-num_attrs: 给类别概率
+    float obj_conf = ptr[4];
+
+    // 分类概率
+    float max_class_prob = 0;
+    int class_id = -1;
+
+    // get max_class_prob and class id(index)
+    for (int j = 5; j < num_attrs; ++j) {
+      if (ptr[j] > max_class_prob) {
+        max_class_prob = ptr[j];
+        class_id = j - 5;
+      }
+    }
+
+    float final_conf = obj_conf * max_class_prob;
+    if (final_conf < conf_threshold)
+      continue;
+
+    float cx = ptr[0], cy = ptr[1], w = ptr[2], h = ptr[3];
+    int left = int(cx - w / 2.0) * img_w;
+    int top = int(cy - h / 2.0) * img_h;
+    int width = int(w * img_w);
+    int height = int(h * img_h);
+
+    results.push_back(Detection{.box = cv::Rect(left, top, width, height),
+                                .confidence = final_conf,
+                                .class_id = class_id});
+  }
+
+  return results;
+}
 
 int main() {
   try {
