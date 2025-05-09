@@ -37,7 +37,7 @@ option(BUILD_WITH_TENSORRT "Enable TensorRT backend" OFF)
 # set(ONNXRUNTIME_LIBS "/usr/lib/libonnxruntime.so")
 
 # 依赖查找
-find_package(Qt5 COMPONENTS Core Gui Widgets Multimedia MultimediaWidgets Concurrent REQUIRED)
+# find_package(Qt5 COMPONENTS Core Gui Widgets Multimedia MultimediaWidgets Concurrent REQUIRED)
 find_package(OpenCV REQUIRED COMPONENTS core imgproc highgui videoio dnn)
 
 

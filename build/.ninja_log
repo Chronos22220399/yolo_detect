@@ -1,17 +1,7 @@
 # ninja log v6
-1039	1271	1746796472639834594	YOLO_QT_DETECTOR	4c6f4b1d248d4fdb
-23	1039	1746796471622947537	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	58ebdfcb87930fff
-7	23	1746796471606949318	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp	81468b7f7bf9905b
-7	23	1746796471606949318	YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp	81468b7f7bf9905b
-7	23	1746796471606949318	YOLO_QT_DETECTOR_autogen/timestamp	81468b7f7bf9905b
-29	1163	1746792520618666396	CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o	92551b43d5abb86f
-29	37	1746792520618281937	CMakeFiles/YOLO_QT_DETECTOR.dir/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp.o	7949fb41d141adbb
-7	23	1746796471606949318	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/YOLO_QT_DETECTOR_autogen/timestamp	81468b7f7bf9905b
-1	7	1746796471600949985	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/CMakeFiles/cmake.verify_globs	94c3b385b9f1e3b9
-1	6	1746796519442042861	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/CMakeFiles/cmake.verify_globs	94c3b385b9f1e3b9
-7	22	1746796519448042295	YOLO_QT_DETECTOR_autogen/timestamp	81468b7f7bf9905b
-7	22	1746796519448042295	YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp	81468b7f7bf9905b
-7	22	1746796519448042295	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/YOLO_QT_DETECTOR_autogen/timestamp	81468b7f7bf9905b
-7	22	1746796519448042295	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp	81468b7f7bf9905b
-22	1039	1746796519464612637	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	58ebdfcb87930fff
-1039	1270	1746796520479945058	YOLO_QT_DETECTOR	4c6f4b1d248d4fdb
+13	1195	1746807907518058024	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	ebd75981ab4f8951
+1195	1229	1746807908699951574	YOLO_QT_DETECTOR	bc9c8ef4a1c396a0
+1	8	1746807907505954727	/Users/wuming/Code/yolo_qt/build/CMakeFiles/cmake.verify_globs	254d52425cc96b0c
+0	7	1746807926205722077	/Users/wuming/Code/yolo_qt/build/CMakeFiles/cmake.verify_globs	254d52425cc96b0c
+13	1194	1746807926218014242	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	ebd75981ab4f8951
+1194	1226	1746807927399310856	YOLO_QT_DETECTOR	bc9c8ef4a1c396a0
