@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "YOLO_QT_DETECTOR_autogen/timestamp" "custom" "YOLO_QT_DETECTOR_autogen/deps"
   "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp" "CMakeFiles/YOLO_QT_DETECTOR.dir/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/YOLO_QT_DETECTOR.dir/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp.o.d"
   "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/main.cpp" "CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o" "gcc" "CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o.d"
+  "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/refer.cpp" "CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o" "gcc" "CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o.d"
   "" "YOLO_QT_DETECTOR" "gcc" "CMakeFiles/YOLO_QT_DETECTOR.dir/link.d"
   )
 

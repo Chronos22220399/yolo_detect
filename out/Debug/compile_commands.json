@@ -1,14 +1,20 @@
 [
 {
   "directory": "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug",
-  "command": "/usr/bin/c++  -I/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include -I/home/Ess/Code/ClassDesign/Example/yolo_qt/include -I/usr/include/onnxruntime -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/YOLO_QT_DETECTOR.dir/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp.o -c /home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp",
+  "command": "/usr/bin/c++  -I/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include -I/home/Ess/Code/ClassDesign/Example/yolo_qt/include -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/YOLO_QT_DETECTOR.dir/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp.o -c /home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp",
   "file": "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp",
   "output": "CMakeFiles/YOLO_QT_DETECTOR.dir/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp.o"
 },
 {
   "directory": "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug",
-  "command": "/usr/bin/c++  -I/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include -I/home/Ess/Code/ClassDesign/Example/yolo_qt/include -I/usr/include/onnxruntime -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o -c /home/Ess/Code/ClassDesign/Example/yolo_qt/src/main.cpp",
+  "command": "/usr/bin/c++  -I/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include -I/home/Ess/Code/ClassDesign/Example/yolo_qt/include -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o -c /home/Ess/Code/ClassDesign/Example/yolo_qt/src/main.cpp",
   "file": "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/main.cpp",
   "output": "CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug",
+  "command": "/usr/bin/c++  -I/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include -I/home/Ess/Code/ClassDesign/Example/yolo_qt/include -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o -c /home/Ess/Code/ClassDesign/Example/yolo_qt/src/refer.cpp",
+  "file": "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/refer.cpp",
+  "output": "CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o"
 }
 ]

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include -I/home/Ess/Code/ClassDesign/Example/yolo_qt/include -I/usr/include/onnxruntime -isystem /usr/include/opencv4
+CXX_INCLUDES = -I/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include -I/home/Ess/Code/ClassDesign/Example/yolo_qt/include -isystem /usr/include/opencv4
 
 CXX_FLAGS = -g -std=gnu++17
 

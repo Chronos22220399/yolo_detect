@@ -118,7 +118,15 @@
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "YOLO_QT_DETECTOR_autogen/timestamp",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"/home/Ess/Code/ClassDesign/Example/yolo_qt/include/OnnxModel.hpp",
+			"MU",
+			"6YEA5652QU/moc_OnnxModel.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp",
@@ -133,7 +141,6 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/Ess/Code/ClassDesign/Example/yolo_qt/include",
-		"/usr/include/onnxruntime",
 		"/usr/include/opencv4",
 		"/usr/include/c++/15.1.1",
 		"/usr/include/c++/15.1.1/x86_64-pc-linux-gnu",
@@ -168,7 +175,12 @@
 	"SETTINGS_FILE" : "/home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/YOLO_QT_DETECTOR_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/main.cpp", "MU", null ]
+		[ "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/main.cpp", "MU", null ],
+		[
+			"/home/Ess/Code/ClassDesign/Example/yolo_qt/src/refer.cpp",
+			"MU",
+			null
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

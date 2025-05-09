@@ -113,6 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	$(CMAKE_COMMAND) -P /home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -203,6 +204,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLO_QT_DETECTOR.dir/build.make CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/refer.o: src/refer.cpp.o
+.PHONY : src/refer.o
+
+# target to build an object file
+src/refer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLO_QT_DETECTOR.dir/build.make CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o
+.PHONY : src/refer.cpp.o
+
+src/refer.i: src/refer.cpp.i
+.PHONY : src/refer.i
+
+# target to preprocess a source file
+src/refer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLO_QT_DETECTOR.dir/build.make CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.i
+.PHONY : src/refer.cpp.i
+
+src/refer.s: src/refer.cpp.s
+.PHONY : src/refer.s
+
+# target to generate assembly for a file
+src/refer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLO_QT_DETECTOR.dir/build.make CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.s
+.PHONY : src/refer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -220,6 +245,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/refer.o"
+	@echo "... src/refer.i"
+	@echo "... src/refer.s"
 .PHONY : help
 
 
@@ -231,6 +259,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /home/Ess/Code/ClassDesign/Example/yolo_qt/out/Debug/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

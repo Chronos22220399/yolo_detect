@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/YOLO_QT_DETECTOR.dir/YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o"
   "CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o.d"
+  "CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o"
+  "CMakeFiles/YOLO_QT_DETECTOR.dir/src/refer.cpp.o.d"
   "YOLO_QT_DETECTOR"
   "YOLO_QT_DETECTOR.pdb"
   "YOLO_QT_DETECTOR_autogen/mocs_compilation.cpp"
