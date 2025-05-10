@@ -5,11 +5,8 @@
 #include <opencv2/opencv.hpp>
 // tools
 #include "../include/ConfigParser.hpp"
-#include "../include/JsonChecker.hpp"
-#include "../include/OnnxModel.hpp"
-#include "../include/OnnxModelOutputParser.hpp"
-#include "../include/DetectionDrawer.hpp"
 #include "../include/Detector.hpp"
+#include "../include/JsonChecker.hpp"
 
 using namespace cv;
 
@@ -20,13 +17,10 @@ static const std::vector<std::string> className = {
 static fileds_type json_required_fields = {"modelPath", "imagePath",
                                            "outputsPath"};
 
-
-
-int main() {
+int main(int argc, char *argv[]) {
   try {
     // 初始化
-    ConfigParser configParser("/Users/wuming/Code/yolo_qt/config/config.json",
-                              json_required_fields);
+    ConfigParser configParser("./config/config.json", json_required_fields);
 
     auto config = configParser.getConfig();
 

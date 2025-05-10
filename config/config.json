@@ -1,5 +1,5 @@
 {
-  "modelPath" : "/Users/wuming/Code/yolo_qt/models/best.onnx",
-  "imagesPath" :  "/Users/wuming/Code/yolo_qt/resources/images/",
-  "outputsPath" : "/Users/wuming/Code/yolo_qt/resources/outputs/"
+  "modelPath" : "./models/best.onnx",
+  "imagesPath" :  "./resources/images/",
+  "outputsPath" : "./resources/outputs/"
 }
