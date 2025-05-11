@@ -5,11 +5,10 @@
 #include <opencv2/dnn/dnn.hpp>
 #include <opencv2/opencv.hpp>
 // tools
-#include "../include/Detector/VideoDetector.hpp"
 #include "../include/ConfigParser.hpp"
+#include "../include/Detector/CameraDetector.hpp"
 #include "../include/Detector/ImageDetector.hpp"
 #include "../include/Detector/VideoDetector.hpp"
-#include "../include/Detector/CameraDetector.hpp"
 #include "../include/JsonChecker.hpp"
 
 using namespace cv;
@@ -24,16 +23,14 @@ static fileds_type json_required_fields = {"modelPath", "srcsPath",
 int main(int argc, char *argv[]) {
   try {
     // 初始化
-    ConfigParser configParser("../config/config.json", json_required_fields);
+    ConfigParser configParser("./config/config.json", json_required_fields);
 
     auto config = configParser.getConfig();
 
     std::unique_ptr<Detector> detector;
-    if (false)
-    {
+    if (false) {
       detector = std::make_unique<VideoDetector>();
-    } else
-    {
+    } else {
       detector = std::make_unique<CameraDetector>();
     }
 

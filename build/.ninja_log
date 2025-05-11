@@ -1,0 +1,4 @@
+# ninja log v6
+0	6	1746960676278790955	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/CMakeFiles/cmake.verify_globs	94c3b385b9f1e3b9
+6	2278	1746960676283788613	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	afe5dfb615802a95
+2278	2592	1746960678556760037	YOLO_QT_DETECTOR	475520477f4b8cba

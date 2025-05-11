@@ -2,17 +2,16 @@
 // stl
 #include <iostream>
 #include <mutex>
-#include <thread>
 #include <queue>
+#include <thread>
 // third_party
 #include <opencv2/opencv.hpp>
 // tools
 #include "../ConfigParser.hpp"
 #include "../DetectionDrawer.hpp"
-#include "../include/Detector/Detector.hpp"
 #include "../OnnxModel.hpp"
 #include "../OnnxModelOutputParser.hpp"
-
+#include "../include/Detector/Detector.hpp"
 
 class CameraDetector : public Detector {
   virtual void detectAndSave(const std::vector<std::string> &className,
@@ -20,7 +19,7 @@ class CameraDetector : public Detector {
                              const std::string &outputName,
                              bool showOutput = true) override {
     auto modelPath = config.modelPath;
-//    auto videoPath = config.srcsPath + srcName;
+    //    auto videoPath = config.srcsPath + srcName;
     auto outputPath = config.outputsPath + outputName;
 
     OnnxModel model(config.modelPath);
@@ -37,7 +36,8 @@ class CameraDetector : public Detector {
 
       cv::Mat img;
 
-      displayThread = std::move(std::thread(&CameraDetector::displayImpl, this));
+      // displayThread =
+      //     std::move(std::thread(&CameraDetector::displayImpl, this));
 
       while (cap.read(img)) {
         if (img.empty()) {
@@ -64,12 +64,12 @@ class CameraDetector : public Detector {
         }
 
         if (showOutput) {
-          std::lock_guard<std::mutex> lock(queueMutex);
-          if (displayQueue.size() < 10) { // 限制队列长度
-            displayQueue.push(img.clone());
-          }
-          if (cv::waitKey(1) == 'q')
-          {
+          // std::lock_guard<std::mutex> lock(queueMutex);
+          // if (displayQueue.size() < 10) { // 限制队列长度
+          //   displayQueue.push(img.clone());
+          // }
+          cv::imshow("img", img);
+          if (cv::waitKey(1) == 'q') {
             break;
           }
         }
@@ -85,53 +85,50 @@ class CameraDetector : public Detector {
 public:
   CameraDetector() = default;
   // 防止意外拷贝
-  CameraDetector(const CameraDetector&) = delete;
-  CameraDetector& operator=(const CameraDetector&) = delete;
+  CameraDetector(const CameraDetector &) = delete;
+  CameraDetector &operator=(const CameraDetector &) = delete;
 
   // 允许移动操作
-  CameraDetector(CameraDetector&&) = delete;
-  CameraDetector& operator=(CameraDetector&&) = delete;
+  CameraDetector(CameraDetector &&) = delete;
+  CameraDetector &operator=(CameraDetector &&) = delete;
 
   ~CameraDetector() override {
-    stop_flag.store(true, std::memory_order_release);
-
-    // 先通知队列
-    {
-      std::lock_guard<std::mutex> lock(queueMutex);
-      displayQueue = {}; // 清空队列
-    }
-
-    // 再等待线程结束
-    if (displayThread.joinable()) {
-      displayThread.join();
-    }
+    // stop_flag.store(true, std::memory_order_release);
+    //
+    // // 先通知队列
+    // {
+    //   std::lock_guard<std::mutex> lock(queueMutex);
+    //   displayQueue = {}; // 清空队列
+    // }
+    //
+    // // 再等待线程结束
+    // if (displayThread.joinable()) {
+    //   displayThread.join();
+    // }
   }
+
 private:
-  static void display(CameraDetector &instance)
-  {
-    instance.displayImpl();
-  }
+  // static void display(CameraDetector &instance) { instance.displayImpl(); }
 
-  void displayImpl()
-  {
-    while (!stop_flag) {
-      if (!displayQueue.empty()) {
-        cv::Mat frame;
-        {
-          std::lock_guard<std::mutex> lock(queueMutex);
-          frame = displayQueue.front();
-          displayQueue.pop();
-        }
-        cv::imshow("Result", frame);
-        cv::waitKey(1);
-      } else {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
-      }
-    }
-  }
+  // void displayImpl() {
+  //   while (!stop_flag) {
+  //     if (!displayQueue.empty()) {
+  //       cv::Mat frame;
+  //       {
+  //         std::lock_guard<std::mutex> lock(queueMutex);
+  //         frame = displayQueue.front();
+  //         displayQueue.pop();
+  //       }
+  //       cv::imshow("Result", frame);
+  //       cv::waitKey(1);
+  //     } else {
+  //       std::this_thread::sleep_for(std::chrono::milliseconds(1));
+  //     }
+  //   }
+  // }
 
-  std::thread displayThread;
-  std::atomic_bool stop_flag{false};
-  std::mutex queueMutex;
-  std::queue<cv::Mat> displayQueue;
+  // std::thread displayThread;
+  // std::atomic_bool stop_flag{false};
+  // std::mutex queueMutex;
+  // std::queue<cv::Mat> displayQueue;
 };
