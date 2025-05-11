@@ -8,7 +8,7 @@
 
 struct Config {
   std::string modelPath;
-  std::string imagesPath;
+  std::string srcsPath;
   std::string outputsPath;
 };
 
@@ -25,7 +25,7 @@ public:
       exit(-1);
     }
     return Config{_j.at("modelPath").get<std::string>(),
-                  _j.at("imagesPath").get<std::string>(),
+                  _j.at("srcsPath").get<std::string>(),
                   _j.at("outputsPath").get<std::string>()};
   }
 

@@ -1,0 +1,3 @@
+/Users/wuming/code/yolo_qt/cmake-build-release/CMakeFiles/YOLO_QT_DETECTOR.dir
+/Users/wuming/code/yolo_qt/cmake-build-release/CMakeFiles/edit_cache.dir
+/Users/wuming/code/yolo_qt/cmake-build-release/CMakeFiles/rebuild_cache.dir

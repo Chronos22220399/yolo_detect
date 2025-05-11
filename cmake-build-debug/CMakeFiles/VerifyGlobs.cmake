@@ -3,49 +3,57 @@
 cmake_policy(SET CMP0009 NEW)
 
 # srcs at CMakeLists.txt:12 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/Ess/Code/ClassDesign/Example/yolo_qt/include/*.h")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/wuming/code/yolo_qt/include/*.h")
 set(OLD_GLOB
+  "/Users/wuming/code/yolo_qt/include/Detection.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/Ess/Code/ClassDesign/Example/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/wuming/code/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()
 
 # srcs at CMakeLists.txt:12 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/Ess/Code/ClassDesign/Example/yolo_qt/include/*.hpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/wuming/code/yolo_qt/include/*.hpp")
 set(OLD_GLOB
-  "/home/Ess/Code/ClassDesign/Example/yolo_qt/include/OnnxModel.hpp"
+  "/Users/wuming/code/yolo_qt/include/ConfigParser.hpp"
+  "/Users/wuming/code/yolo_qt/include/DetectionDrawer.hpp"
+  "/Users/wuming/code/yolo_qt/include/Detector/CameraDetector.hpp"
+  "/Users/wuming/code/yolo_qt/include/Detector/Detector.hpp"
+  "/Users/wuming/code/yolo_qt/include/Detector/ImageDetector.hpp"
+  "/Users/wuming/code/yolo_qt/include/Detector/VideoDetector.hpp"
+  "/Users/wuming/code/yolo_qt/include/JsonChecker.hpp"
+  "/Users/wuming/code/yolo_qt/include/OnnxModel.hpp"
+  "/Users/wuming/code/yolo_qt/include/OnnxModelOutputParser.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/Ess/Code/ClassDesign/Example/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/wuming/code/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()
 
 # srcs at CMakeLists.txt:12 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/*.c")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/wuming/code/yolo_qt/src/*.c")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/Ess/Code/ClassDesign/Example/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/wuming/code/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()
 
 # srcs at CMakeLists.txt:12 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/*.cc")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/wuming/code/yolo_qt/src/*.cc")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/Ess/Code/ClassDesign/Example/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/wuming/code/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()
 
 # srcs at CMakeLists.txt:12 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/wuming/code/yolo_qt/src/*.cpp")
 set(OLD_GLOB
-  "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/main.cpp"
-  "/home/Ess/Code/ClassDesign/Example/yolo_qt/src/refer.cpp"
+  "/Users/wuming/code/yolo_qt/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/Ess/Code/ClassDesign/Example/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/wuming/code/yolo_qt/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()

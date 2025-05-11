@@ -6,20 +6,28 @@
 
 using class_list_type = std::vector<std::string>;
 
-class OnnxModelOutputParser {
-  struct minMaxResult {
-    double max_class_score;
+class OnnxModelOutputParser
+{
+  struct maxClassResult {
+    float max_class_score;
     int class_id;
   };
 
 public:
   std::vector<Detection> parse(const class_list_type &class_list, float *data,
-                               int rows, double conf_threshold) {
+                               int rows, double conf_threshold, const cv::Mat &srcImg) {
     std::vector<float> confidences;
     std::vector<int> class_ids;
     std::vector<cv::Rect> boxes;
 
-    for (int i = 0; i < rows; ++i, data = data + class_list.size() + 5) {
+    confidences.reserve(rows);
+    class_ids.reserve(rows);
+    boxes.reserve(rows);
+
+    float scale_x = static_cast<float>(srcImg.cols) / 640;
+    float scale_y = static_cast<float>(srcImg.rows) / 640;
+
+    for (int i = 0; i < rows; ++i, data += class_list.size() + 5) {
       float conf = data[4];
       // 筛选信度较低的
       if (conf < conf_threshold)
@@ -27,7 +35,7 @@ public:
 
       // 获取当前图片的检测数据
       auto result =
-          get_min_max_loc(class_list, confidences, class_ids, boxes, data);
+          get_max_class_result(class_list, confidences, class_ids, boxes, data);
 
       if (result.max_class_score < 0.4)
         continue;
@@ -37,10 +45,10 @@ public:
       float w = data[2];
       float h = data[3];
 
-      int left_top_x = int(x - w / 2);
-      int left_top_y = int(y - h / 2);
-      int width = w;
-      int height = h;
+      int left_top_x = int(x - w / 2) * scale_x;
+      int left_top_y = int(y - h / 2) * scale_y;
+      int width = w * scale_x;
+      int height = h * scale_y;
 
       confidences.push_back(result.max_class_score);
       class_ids.push_back(result.class_id);
@@ -51,45 +59,51 @@ public:
   }
 
 private:
-  std::vector<Detection> get_detection(const std::vector<float> &confidences,
-                                       const std::vector<cv::Rect> &boxes,
-                                       const std::vector<int> &class_ids) {
-    auto nms_result = get_nms_result(confidences, boxes, 0.2, 0.2);
+    std::vector<Detection> get_detection(const std::vector<float> &confidences,
+                                         const std::vector<cv::Rect> &boxes,
+                                         const std::vector<int> &class_ids) {
+      auto nms_result = get_nms_result(confidences, boxes, 0.2, 0.2);
 
-    std::vector<Detection> detections;
-    for (int i = 0; i < nms_result.size(); i++) {
-      int idx = nms_result[i];
-      Detection result;
-      result.class_id = class_ids[idx];
-      result.confidence = confidences[idx];
-      result.box = boxes[idx];
-      detections.push_back(result);
+      std::vector<Detection> detections;
+      for (int i = 0; i < nms_result.size(); i++) {
+        int idx = nms_result[i];
+        Detection result;
+        result.class_id = class_ids[idx];
+        result.confidence = confidences[idx];
+        result.box = boxes[idx];
+        detections.push_back(result);
+      }
+      return detections;
     }
-    return detections;
-  }
 
-  std::vector<int> get_nms_result(const std::vector<float> &confidences,
-                                  const std::vector<cv::Rect> &boxes,
-                                  float score_threshold, float nms_threshold) {
-    std::vector<int> nms_result;
-    cv::dnn::NMSBoxes(boxes, confidences, score_threshold, nms_threshold,
-                      nms_result);
-    return nms_result;
-  }
+    std::vector<int> get_nms_result(const std::vector<float> &confidences,
+                                    const std::vector<cv::Rect> &boxes,
+                                    float score_threshold, float nms_threshold) {
+      std::vector<int> nms_result;
+      cv::dnn::NMSBoxes(boxes, confidences, score_threshold, nms_threshold,
+                        nms_result);
+      return nms_result;
+    }
 
-  minMaxResult get_min_max_loc(const class_list_type &class_list,
-                               std::vector<float> &confidences,
-                               std::vector<int> &class_ids,
-                               std::vector<cv::Rect> &boxes, float *data) {
-    auto classes_scores = data + 5;
-    cv::Mat scores(1, class_list.size(), CV_32FC1, classes_scores);
-    // 获取最可能的分类
-    cv::Point class_id;
-    double max_class_score;
-    cv::minMaxLoc(scores, 0, &max_class_score, 0, &class_id);
+    maxClassResult get_max_class_result(const class_list_type &class_list,
+                                 std::vector<float> &confidences,
+                                 std::vector<int> &class_ids,
+                                 std::vector<cv::Rect> &boxes, float *data) {
+      auto classes_scores = data + 5;
+      float max_class_score = classes_scores[0];
+      int max_class_id = 0;
 
-    return {max_class_score, class_id.x};
-  }
+      for (int i = 0; i < class_list.size(); ++i)
+      {
+        if (classes_scores[i] > max_class_score)
+        {
+          max_class_score = classes_scores[i];
+          max_class_id = i;
+        }
+      }
+
+      return maxClassResult{max_class_score, max_class_id};
+    }
 };
 
 class Drawer {
