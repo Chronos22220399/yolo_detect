@@ -1,0 +1,29 @@
+{
+  "modelPath": "../models/zj_chocolate.onnx",
+  "srcsPath": "../resources/zj/images/",
+  "outputsPath": "../resources/zj/outputs/",
+  "classNames": [
+    "Dark Almond Nougat",
+    "Dark Almonds",
+    "Dark Bordeaux",
+    "Dark Caramel Patties",
+    "Dark Chocolate Buttercream",
+    "Dark Marzipan",
+    "Dark Normandie",
+    "Dark Scotchmallow",
+    "Dark Walnut Square",
+    "Milk Almond Caramel",
+    "Milk Almonds",
+    "Milk Beverly",
+    "Milk Bordeaux",
+    "Milk Butterscotch Square",
+    "Milk California Brittle",
+    "Milk Chelsea",
+    "Milk Chocolate Buttercream",
+    "Milk Coconut Cream",
+    "Milk Mayfair",
+    "Milk Mocha",
+    "Milk Molasses Chips",
+    "Milk Rum Nougat"
+  ]
+}

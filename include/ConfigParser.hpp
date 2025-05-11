@@ -10,6 +10,7 @@ struct Config {
   std::string modelPath;
   std::string srcsPath;
   std::string outputsPath;
+  std::vector<std::string> classNames;
 };
 
 class ConfigParser {
@@ -26,7 +27,9 @@ public:
     }
     return Config{_j.at("modelPath").get<std::string>(),
                   _j.at("srcsPath").get<std::string>(),
-                  _j.at("outputsPath").get<std::string>()};
+                  _j.at("outputsPath").get<std::string>(),
+      _j.at("classNames").get<std::vector<std::string>>()
+    };
   }
 
   void parseJson(const std::string &configFileName,

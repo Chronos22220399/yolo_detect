@@ -1,0 +1,16 @@
+{
+  "modelPath": "../models/yk_emotion.onnx",
+  "srcsPath": "../resources/yk/images/",
+  "outputsPath": "../resources/yk/outputs/",
+  "classNames": [
+    "angry",
+    "contempt",
+    "disgust",
+    "fear",
+    "happy",
+    "natural",
+    "sad",
+    "sleepy",
+    "surprised"
+  ]
+}

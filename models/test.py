@@ -1,6 +1,6 @@
 import onnx
 
-model = onnx.load("best.onnx")
+model = onnx.load("zj_chocolate.onnx")
 
 print("Inputs: ")
 for i in model.graph.input:

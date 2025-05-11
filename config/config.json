@@ -1,5 +1,0 @@
-{
-  "modelPath" : "../models/best.onnx",
-  "srcsPath" :  "/Users/wuming/Desktop/",
-  "outputsPath" : "../resources/outputs/"
-}
