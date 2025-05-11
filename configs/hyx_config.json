@@ -1,0 +1,9 @@
+{
+  "modelPath": "../models/hyx_teeth.onnx",
+  "srcsPath": "../resources/hyx/images/100.jpg",
+  "outputsPath": "../resources/hyx/outputs/100.jpg",
+  "classNames": [
+    "cavity",
+    "normal"
+  ]
+}

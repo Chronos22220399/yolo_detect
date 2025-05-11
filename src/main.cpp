@@ -13,17 +13,16 @@
 
 using namespace cv;
 
-static const std::vector<std::string> className = {
-    "angry",   "contempt", "disgust", "fear",     "happy",
-    "natural", "sad",      "sleepy",  "surprised"};
+static const std::vector<std::string> classNames;
 
 static fileds_type json_required_fields = {"modelPath", "srcsPath",
-                                           "outputsPath"};
+                                           "outputsPath", "classNames"};
 
 int main(int argc, char *argv[]) {
   try {
     // 初始化
-    ConfigParser configParser("./config/config.json", json_required_fields);
+    ConfigParser configParser("../configs/zyh_config.json",
+                              json_required_fields);
 
     auto config = configParser.getConfig();
 
@@ -33,9 +32,9 @@ int main(int argc, char *argv[]) {
     } else {
       detector = std::make_unique<CameraDetector>();
     }
+    // detector = std::make_unique<ImageDetector>();
 
-    detector->detectAndSave(className, config, "video.mp4", "smile.jpg");
-    // Detector::detectAndSave(className, config, "smile.jpg", "smile.jpg");
+    detector->detectAndSave(config, 0.4);
 
   } catch (const cv::Exception &e) {
     std::cout << "cv error: " << e.what() << std::endl;

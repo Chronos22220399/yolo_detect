@@ -15,7 +15,7 @@ class OnnxModelOutputParser
 
 public:
   std::vector<Detection> parse(const class_list_type &class_list, float *data,
-                               int rows, double conf_threshold, const cv::Mat &srcImg) {
+                               int rows, float conf_threshold, const cv::Mat &srcImg) {
     std::vector<float> confidences;
     std::vector<int> class_ids;
     std::vector<cv::Rect> boxes;
