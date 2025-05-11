@@ -15,8 +15,7 @@
 
 
 class CameraDetector : public Detector {
-  virtual void detectAndSave(const Config &config, const std::string &srcName,
-                             const std::string &outputName,
+  virtual void detectAndSave(const Config &config,
                              float conf_threshold = 0.4, bool showOutput = true) override {
     auto modelPath = config.modelPath;
     auto classNames = config.classNames;

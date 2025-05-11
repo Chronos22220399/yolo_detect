@@ -1,7 +1,7 @@
 {
   "modelPath": "../models/zj_chocolate.onnx",
-  "srcsPath": "../resources/zj/images/",
-  "outputsPath": "../resources/zj/outputs/",
+  "srcsPath": "../resources/zj/images/chocolate.jpg",
+  "outputsPath": "../resources/zj/outputs/chocolate.jpg",
   "classNames": [
     "Dark Almond Nougat",
     "Dark Almonds",

@@ -13,12 +13,11 @@
 
 class VideoDetector : public Detector {
   virtual void detectAndSave(
-                             const Config &config, const std::string &srcName,
-                             const std::string &outputName,
+                             const Config &config,
                              float conf_threshold, bool showOutput = true) override {
     auto modelPath = config.modelPath;
-    auto videoPath = config.srcsPath + srcName;
-    auto outputPath = config.outputsPath + outputName;
+    auto videoPath = config.srcsPath;
+    auto outputPath = config.outputsPath;
     auto &classNames = config.classNames;
 
     OnnxModel model(config.modelPath);

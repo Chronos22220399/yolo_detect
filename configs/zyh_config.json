@@ -1,7 +1,7 @@
 {
   "modelPath": "../models/zyh_num.onnx",
-  "srcsPath": "../resources/zyh/images/",
-  "outputsPath": "../resources/zyh/outputs/",
+  "srcsPath": "../resources/zyh/images/777.jpg",
+  "outputsPath": "../resources/zyh/outputs/777.jpg",
   "classNames": [
     "0",
     "1",

@@ -22,7 +22,7 @@ static fileds_type json_required_fields = {"modelPath", "srcsPath",
 int main(int argc, char *argv[]) {
   try {
     // 初始化
-    ConfigParser configParser("../configs/yk_config.json", json_required_fields);
+    ConfigParser configParser("../configs/zyh_config.json", json_required_fields);
 
     auto config = configParser.getConfig();
 
@@ -36,8 +36,7 @@ int main(int argc, char *argv[]) {
     }
     // detector = std::make_unique<ImageDetector>();
 
-    detector->detectAndSave(config, "777.jpg", "777.jpg", 0.4);
-    // Detector::detectAndSave(configs, "smile.jpg", "smile.jpg");
+    detector->detectAndSave(config, 0.4);
 
   } catch (const cv::Exception &e) {
     std::cout << "cv error: " << e.what() << std::endl;
