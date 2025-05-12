@@ -1,4 +1,7 @@
 # ninja log v6
-0	6	1746960676278790955	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/CMakeFiles/cmake.verify_globs	94c3b385b9f1e3b9
-6	2278	1746960676283788613	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	afe5dfb615802a95
-2278	2592	1746960678556760037	YOLO_QT_DETECTOR	475520477f4b8cba
+1	7	1746967885937835242	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/CMakeFiles/cmake.verify_globs	94c3b385b9f1e3b9
+8	2453	1746967885944835284	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	afe5dfb615802a95
+2453	2723	1746967888389849957	YOLO_QT_DETECTOR	475520477f4b8cba
+1	6	1747051018505280360	/home/Ess/Code/ClassDesign/Example/yolo_qt/build/CMakeFiles/cmake.verify_globs	94c3b385b9f1e3b9
+9	2192	1747051018513280615	CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o	afe5dfb615802a95
+2192	2464	1747051020696350156	YOLO_QT_DETECTOR	475520477f4b8cba

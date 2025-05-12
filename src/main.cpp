@@ -21,14 +21,14 @@ static fileds_type json_required_fields = {"modelPath", "srcsPath",
 int main(int argc, char *argv[]) {
   try {
     // 初始化
-    ConfigParser configParser("../configs/zyh_config.json",
+    ConfigParser configParser("../configs/hyx_config.json",
                               json_required_fields);
 
     auto config = configParser.getConfig();
 
     std::unique_ptr<Detector> detector;
     if (false) {
-      detector = std::make_unique<VideoDetector>();
+      // detector = std::make_unique<VideoDetector>();
     } else {
       detector = std::make_unique<CameraDetector>();
     }

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 // third_party
-#include <nlohmann/json.hpp>
+#include "../include/nlohmann/json.hpp"
 // tools
 #include "../include/JsonChecker.hpp"
 
@@ -28,8 +28,7 @@ public:
     return Config{_j.at("modelPath").get<std::string>(),
                   _j.at("srcsPath").get<std::string>(),
                   _j.at("outputsPath").get<std::string>(),
-      _j.at("classNames").get<std::vector<std::string>>()
-    };
+                  _j.at("classNames").get<std::vector<std::string>>()};
   }
 
   void parseJson(const std::string &configFileName,

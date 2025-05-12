@@ -4,4 +4,5 @@
 cmake -B build -G Ninja
 cmake --build build --parallel 16
 
-./build/YOLO_QT_DETECTOR
+cd build
+./YOLO_QT_DETECTOR

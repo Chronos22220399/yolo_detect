@@ -23,6 +23,7 @@ set(OLD_GLOB
   "/home/Ess/Code/ClassDesign/Example/yolo_qt/include/JsonChecker.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_qt/include/OnnxModel.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_qt/include/OnnxModelOutputParser.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_qt/include/nlohmann/json.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
