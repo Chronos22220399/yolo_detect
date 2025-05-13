@@ -20,5 +20,6 @@
 		"sad",
 		"sleepy",
 		"surprised"
-	]
+	],
+	"useYUYV": true
 }

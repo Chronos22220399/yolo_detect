@@ -10,5 +10,6 @@
 		"video": "./resources/hyx/outputs/video.mp4",
 		"camera": "placeholder"
 	},
-	"classNames": ["cavity", "normal"]
+	"classNames": ["cavity", "normal"],
+	"useYUYV": true
 }

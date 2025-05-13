@@ -53,6 +53,9 @@ protected:
   virtual void setUpVideoCapture() {
     cap.open(sourcePaths.videoPath);
     cap.set(cv::CAP_PROP_FPS, frameRate);
+    if (useYUYV) {
+      cap.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V'));
+    }
     if (!cap.isOpened()) {
       std::cerr << "打开视频失败\n";
       exit(-1);

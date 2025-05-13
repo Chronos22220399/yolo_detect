@@ -12,6 +12,7 @@ protected:
   SourcePaths sourcePaths;
   OutputPaths outputPaths;
   std::vector<std::string> classNames;
+  bool useYUYV;
   std::unique_ptr<Model> model;
   std::unique_ptr<ModelOutputParser> parser;
   const int rows = 25200;
@@ -21,7 +22,7 @@ public:
       : modelPath(std::move(config.modelPath)),
         sourcePaths(std::move(config.sourcePaths)),
         outputPaths(std::move(config.outputPaths)),
-        classNames(std::move(config.classNames)) {
+        classNames(std::move(config.classNames)), useYUYV(config.useYUYV) {
     this->model = std::make_unique<OnnxModel>(modelPath);
     this->parser = std::make_unique<OnnxModelOutputParser>();
   }

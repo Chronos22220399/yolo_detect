@@ -23,6 +23,7 @@ struct Config {
   SourcePaths sourcePaths;
   OutputPaths outputPaths;
   std::vector<std::string> classNames;
+  bool useYUYV;
 };
 
 // 实现 SourcesPath 的 from_json 函数
@@ -45,6 +46,10 @@ inline void from_json(const nlohmann::json &j, Config &config) {
   j.at("sourcePaths").get_to(config.sourcePaths);
   j.at("outputPaths").get_to(config.outputPaths);
   j.at("classNames").get_to(config.classNames);
+  if (j.at("useYUYV").empty())
+    config.useYUYV = false;
+  else
+    j.at("useYUYV").get_to(config.useYUYV);
 }
 
 class ConfigParser {
