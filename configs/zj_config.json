@@ -1,37 +1,37 @@
 {
-  "modelPath": "../models/zj_chocolate.onnx",
-  "srcsPath": {
-    {"image", "../resources/zj/images/image.jpg"},
-    {"video", "../resources/zj/videos/video.mp4"},
-    {"camera", "placeholder"},
-  },
-  "outputsPath": {
-    {"image", "../resources/zj/outputs/image.jpg"},
-    {"video", "../resources/zj/outputs/video.mp4"},
-    {"camera", "placeholder"}
-  },
-  "classNames": [
-    "Dark Almond Nougat",
-    "Dark Almonds",
-    "Dark Bordeaux",
-    "Dark Caramel Patties",
-    "Dark Chocolate Buttercream",
-    "Dark Marzipan",
-    "Dark Normandie",
-    "Dark Scotchmallow",
-    "Dark Walnut Square",
-    "Milk Almond Caramel",
-    "Milk Almonds",
-    "Milk Beverly",
-    "Milk Bordeaux",
-    "Milk Butterscotch Square",
-    "Milk California Brittle",
-    "Milk Chelsea",
-    "Milk Chocolate Buttercream",
-    "Milk Coconut Cream",
-    "Milk Mayfair",
-    "Milk Mocha",
-    "Milk Molasses Chips",
-    "Milk Rum Nougat"
-  ]
+	"modelPath": "../models/zj_chocolate.onnx",
+	"sourcePaths": {
+		"image": "./resources/zj/images/image.jpg",
+		"video": "./resources/zj/videos/video.mp4",
+		"camera": "placeholder"
+	},
+	"outputPaths": {
+		"image": "./resources/zj/outputs/image.jpg",
+		"video": "./resources/zj/outputs/video.mp4",
+		"camera": "placeholder"
+	},
+	"classNames": [
+		"Dark Almond Nougat",
+		"Dark Almonds",
+		"Dark Bordeaux",
+		"Dark Caramel Patties",
+		"Dark Chocolate Buttercream",
+		"Dark Marzipan",
+		"Dark Normandie",
+		"Dark Scotchmallow",
+		"Dark Walnut Square",
+		"Milk Almond Caramel",
+		"Milk Almonds",
+		"Milk Beverly",
+		"Milk Bordeaux",
+		"Milk Butterscotch Square",
+		"Milk California Brittle",
+		"Milk Chelsea",
+		"Milk Chocolate Buttercream",
+		"Milk Coconut Cream",
+		"Milk Mayfair",
+		"Milk Mocha",
+		"Milk Molasses Chips",
+		"Milk Rum Nougat"
+	]
 }
