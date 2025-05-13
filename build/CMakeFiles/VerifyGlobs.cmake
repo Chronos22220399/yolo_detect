@@ -25,6 +25,7 @@ set(OLD_GLOB
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/ModelOutputParser.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/OnnxModel.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/OnnxModelOutputParser.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

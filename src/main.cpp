@@ -15,15 +15,15 @@ using namespace cv;
 
 static const std::vector<std::string> classNames;
 
-static fileds_type json_required_fields = {"modelPath", "srcsPath",
-                                           "outputsPath", "classNames"};
+static fileds_type json_required_fields = {"modelPath", "sourcePaths",
+                                           "outputPaths", "classNames"};
 
 enum class DemoMode { ImageDemo, VideoDemo, CameraDemo };
 
 struct Options {
   std::optional<std::string> configPath;
   std::optional<DemoMode> demoMode;
-  std::optional<int> frame;
+  std::optional<int> frameRate;
 };
 
 Options handleOptions(int argc, char *argv[]) {
@@ -48,7 +48,7 @@ Options handleOptions(int argc, char *argv[]) {
     else if (arg == "--frame" && i + 1 < argc) {
       std::string param = argv[i + 1];
       if (!param.empty()) {
-        options.frame = std::stoi(param);
+        options.frameRate = std::stoi(param);
       }
     }
   }
@@ -84,9 +84,9 @@ int main(int argc, char *argv[]) {
     options.demoMode = DemoMode::ImageDemo;
   }
 
-  if (!options.frame) {
+  if (!options.frameRate) {
     std::cout << "Default: " << argv[0] << " --frame 30" << std::endl;
-    options.frame = 30;
+    options.frameRate = 30;
   }
 
   try {
@@ -100,17 +100,19 @@ int main(int argc, char *argv[]) {
       detector = std::make_unique<ImageDetector>(std::move(config));
 
     } else if (options.demoMode == DemoMode::VideoDemo) {
-      detector = std::make_unique<VideoDetector>(std::move(config));
+      detector = std::make_unique<VideoDetector>(std::move(config),
+                                                 options.frameRate.value());
 
     } else if (options.demoMode == DemoMode::CameraDemo) {
-      detector = std::make_unique<CameraDetector>(std::move(config));
+      detector = std::make_unique<CameraDetector>(std::move(config),
+                                                  options.frameRate.value());
 
     } else {
       std::cerr << "Error !!!" << std::endl;
       exit(-1);
     }
 
-    detector->detect(0.4, true, options.frame.value());
+    detector->detect(0.4, true, options.frameRate.value());
 
   } catch (const cv::Exception &e) {
     std::cout << "cv error: " << e.what() << std::endl;

@@ -397,14 +397,17 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o: \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/../include/JsonChecker.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/CameraDetector.hpp \
- /usr/include/c++/15.1.1/thread /usr/include/c++/15.1.1/bits/std_thread.h \
+ /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/VideoDetector.hpp \
+ /usr/include/c++/15.1.1/atomic /usr/include/c++/15.1.1/thread \
+ /usr/include/c++/15.1.1/bits/std_thread.h \
  /usr/include/c++/15.1.1/bits/this_thread_sleep.h \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/../DetectionDrawer.hpp \
+ /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/../SafeQueue.hpp \
+ /usr/include/c++/15.1.1/condition_variable \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Detector/Detector.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Detection.h \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/OnnxModel.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/./Model.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/OnnxModelOutputParser.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/./ModelOutputParser.hpp \
- /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/ImageDetector.hpp \
- /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/VideoDetector.hpp
+ /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/ImageDetector.hpp

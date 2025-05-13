@@ -14,6 +14,7 @@ protected:
   std::vector<std::string> classNames;
   std::unique_ptr<Model> model;
   std::unique_ptr<ModelOutputParser> parser;
+  const int rows = 25200;
 
 public:
   Detector(Config &&config)
@@ -26,12 +27,13 @@ public:
   }
 
   virtual void detect(float conf_threshold = 0.4, bool showOutput = true,
-                      int milsec = 30, bool save = true) = 0;
+                      bool save = true) = 0;
 
-  static bool showOutput(bool showOutput, const cv::Mat &frame, int milsec) {
+  static bool showOutput(bool showOutput, const cv::Mat &frame,
+                         int frameRate = 0) {
     if (showOutput) {
       cv::imshow("img", frame);
-      if (cv::waitKey(milsec) == 'q') {
+      if (cv::waitKey(frameRate) == 'q') {
         return true;
       }
     }

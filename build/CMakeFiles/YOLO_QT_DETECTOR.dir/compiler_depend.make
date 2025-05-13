@@ -13,6 +13,7 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o: /home/Ess/Code/ClassDesign/Examp
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/ConfigParser.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/DetectionDrawer.hpp \
+  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/CameraDetector.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/ImageDetector.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/VideoDetector.hpp \
@@ -110,6 +111,7 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o: /home/Ess/Code/ClassDesign/Examp
   /usr/include/c++/15.1.1/algorithm \
   /usr/include/c++/15.1.1/any \
   /usr/include/c++/15.1.1/array \
+  /usr/include/c++/15.1.1/atomic \
   /usr/include/c++/15.1.1/backward/auto_ptr.h \
   /usr/include/c++/15.1.1/backward/binders.h \
   /usr/include/c++/15.1.1/bit \
@@ -248,6 +250,7 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o: /home/Ess/Code/ClassDesign/Examp
   /usr/include/c++/15.1.1/compare \
   /usr/include/c++/15.1.1/complex \
   /usr/include/c++/15.1.1/concepts \
+  /usr/include/c++/15.1.1/condition_variable \
   /usr/include/c++/15.1.1/cstddef \
   /usr/include/c++/15.1.1/cstdint \
   /usr/include/c++/15.1.1/cstdio \
@@ -747,8 +750,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/lib/libva.so.2:
 
-/usr/lib/libutf8_validity.so.30.2.0:
-
 /usr/lib/libunwind.so.8:
 
 /usr/lib/libunistring.so.5:
@@ -802,8 +803,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/lib/libogg.so.0:
 
 /usr/lib/libmp3lame.so.0:
-
-/usr/lib/libmodplug.so.1:
 
 /usr/lib/libm.so.6:
 
@@ -941,6 +940,14 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/lib/libabsl_die_if_null.so.2501.0.0:
 
+/usr/lib/libabsl_demangle_rust.so.2501.0.0:
+
+/usr/lib/libabsl_demangle_internal.so.2501.0.0:
+
+/usr/lib/libabsl_decode_rust_punycode.so.2501.0.0:
+
+/usr/include/c++/15.1.1/cstring:
+
 /usr/include/c++/15.1.1/cstdio:
 
 /usr/lib/libgomp.so.1:
@@ -948,6 +955,8 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/include/c++/15.1.1/bits/stl_pair.h:
 
 /usr/include/bits/pthreadtypes-arch.h:
+
+/usr/include/c++/15.1.1/condition_variable:
 
 /usr/include/c++/15.1.1/climits:
 
@@ -964,8 +973,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/include/c++/15.1.1/bits/utility.h:
 
 /usr/include/c++/15.1.1/bits/uses_allocator.h:
-
-/usr/include/c++/15.1.1/bits/unique_ptr.h:
 
 /usr/include/c++/15.1.1/bits/stringfwd.h:
 
@@ -1123,7 +1130,21 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/bits/types/locale_t.h:
 
+/usr/lib/libutf8_validity.so.30.2.0:
+
+/usr/include/c++/15.1.1/atomic:
+
 /usr/include/bits/types/time_t.h:
+
+/usr/include/c++/15.1.1/bits/concept_check.h:
+
+/usr/include/asm/posix_types_64.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/opencv4/opencv2/core/utils/logger.defines.hpp:
+
+/usr/include/opencv4/opencv2/core/cvdef.h:
 
 /usr/include/bits/types/clockid_t.h:
 
@@ -1235,13 +1256,17 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/lib/libQt6OpenGLWidgets.so.6:
 
-/usr/lib/libabsl_demangle_internal.so.2501.0.0:
-
 /usr/include/bits/typesizes.h:
 
-/usr/include/bits/libm-simd-decl-stubs.h:
+/usr/lib/libmodplug.so.1:
 
-/usr/include/c++/15.1.1/deque:
+/home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp:
+
+/usr/include/bits/types/__sigset_t.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/limits.h:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/bits/endianness.h:
 
@@ -1295,8 +1320,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/bits/stdio.h:
 
-/usr/lib/libabsl_demangle_rust.so.2501.0.0:
-
 /usr/lib/libgstreamer-1.0.so.0:
 
 /usr/include/sys/single_threaded.h:
@@ -1304,10 +1327,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/include/asm-generic/errno.h:
 
 /usr/include/c++/15.1.1/bits/node_handle.h:
-
-/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp:
-
-/usr/include/c++/15.1.1/unordered_map:
 
 /usr/lib/libwebpdemux.so.2:
 
@@ -1325,25 +1344,11 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/c++/15.1.1/bits/postypes.h:
 
-/usr/include/endian.h:
-
-/usr/include/c++/15.1.1/bits/vector.tcc:
-
-/usr/include/opencv4/opencv2/photo.hpp:
-
-/usr/include/stdint.h:
-
-/usr/include/bits/stdint-least.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o:
-
-/usr/include/c++/15.1.1/functional:
-
-/usr/include/c++/15.1.1/mutex:
-
 /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/Model.hpp:
 
 /usr/include/bits/types/__fpos64_t.h:
+
+/usr/include/c++/15.1.1/deque:
 
 /usr/include/asm/types.h:
 
@@ -1354,6 +1359,16 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/include/c++/15.1.1/bits/stl_raw_storage_iter.h:
 
 /usr/include/bits/types/struct_FILE.h:
+
+/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp:
+
+/usr/include/c++/15.1.1/unordered_map:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o:
+
+/usr/include/c++/15.1.1/functional:
+
+/usr/include/c++/15.1.1/mutex:
 
 /usr/include/c++/15.1.1/chrono:
 
@@ -1383,10 +1398,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/c++/15.1.1/thread:
 
-/usr/include/asm/posix_types_64.h:
-
-/usr/include/c++/15.1.1/bits/concept_check.h:
-
 /usr/include/bits/locale.h:
 
 /usr/include/opencv4/opencv2/flann/index_testing.h:
@@ -1405,12 +1416,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/lib/libOpenEXRCore-3_3.so.32:
 
-/usr/include/bits/timex.h:
-
-/usr/include/opencv4/opencv2/core/utils/logger.defines.hpp:
-
-/usr/include/opencv4/opencv2/core/cvdef.h:
-
 /usr/include/c++/15.1.1/cstdlib:
 
 /usr/include/bits/mathcalls-macros.h:
@@ -1421,21 +1426,27 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/c++/15.1.1/cerrno:
 
+/usr/lib/libQt6Gui.so.6:
+
+/usr/include/c++/15.1.1/numeric:
+
 /usr/include/c++/15.1.1/bits/fs_ops.h:
 
 /usr/lib/libjxl_cms.so.0.11:
 
 /usr/include/linux/posix_types.h:
 
-/usr/include/bits/types/__sigset_t.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/limits.h:
-
-/usr/include/c++/15.1.1/numeric:
-
-/usr/lib/libQt6Gui.so.6:
-
 /usr/include/asm-generic/errno-base.h:
+
+/usr/include/endian.h:
+
+/usr/include/c++/15.1.1/bits/vector.tcc:
+
+/usr/include/opencv4/opencv2/photo.hpp:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/stdint-least.h:
 
 /usr/include/c++/15.1.1/bits/atomic_lockfree_defines.h:
 
@@ -1515,12 +1526,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/opencv4/opencv2/core/utils/logtag.hpp:
 
-/usr/include/c++/15.1.1/debug/debug.h:
-
-/usr/include/opencv4/opencv2/flann/heap.h:
-
-/usr/lib/libgcc_s.so:
-
 /usr/include/bits/types/__fpos_t.h:
 
 /usr/include/c++/15.1.1/tr1/beta_function.tcc:
@@ -1587,6 +1592,8 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 
 /usr/include/bits/xopen_lim.h:
 
+/usr/include/c++/15.1.1/bits/unique_ptr.h:
+
 /usr/include/bits/posix2_lim.h:
 
 /usr/lib/libopenmpt.so.0:
@@ -1622,6 +1629,12 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/include/c++/15.1.1/bits/align.h:
 
 /usr/include/c++/15.1.1/bits/charconv.h:
+
+/usr/include/c++/15.1.1/debug/debug.h:
+
+/usr/include/opencv4/opencv2/flann/heap.h:
+
+/usr/lib/libgcc_s.so:
 
 /usr/include/c++/15.1.1/bits/stl_algo.h:
 
@@ -1990,10 +2003,6 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/include/opencv4/opencv2/flann/lsh_table.h:
 
 /usr/include/opencv4/opencv2/flann/miniflann.hpp:
-
-/usr/include/c++/15.1.1/cstring:
-
-/usr/lib/libabsl_decode_rust_punycode.so.2501.0.0:
 
 /usr/include/c++/15.1.1/bits/stl_bvector.h:
 
