@@ -18,23 +18,99 @@ static const std::vector<std::string> classNames;
 static fileds_type json_required_fields = {"modelPath", "srcsPath",
                                            "outputsPath", "classNames"};
 
+enum class DemoMode { ImageDemo, VideoDemo, CameraDemo };
+
+struct Options {
+  std::optional<std::string> configPath;
+  std::optional<DemoMode> demoMode;
+  std::optional<int> frame;
+};
+
+Options handleOptions(int argc, char *argv[]) {
+  Options options;
+  for (int i = 1; i < argc; ++i) {
+    std::string arg = argv[i];
+
+    if (arg == "--config" && i + 1 < argc) {
+      options.configPath = argv[i + 1];
+      i++;
+
+    } else if (arg == "--source" && i + 1 < argc) {
+      std::string param = argv[i + 1];
+      if (param == "image")
+        options.demoMode = DemoMode::ImageDemo;
+      else if (param == "video")
+        options.demoMode = DemoMode::VideoDemo;
+      else if (param == "camera")
+        options.demoMode = DemoMode::CameraDemo;
+    }
+
+    else if (arg == "--frame" && i + 1 < argc) {
+      std::string param = argv[i + 1];
+      if (!param.empty()) {
+        options.frame = std::stoi(param);
+      }
+    }
+  }
+
+  return options;
+}
+
 int main(int argc, char *argv[]) {
+  // cv::VideoCapture cap(0);
+  // while (!cap.isOpened()) {
+  //   std::cerr << "open error" << std::endl;
+  //   exit(-1);
+  // }
+  //
+  // cv::Mat frame;
+  // while (cap.read(frame)) {
+  //   cv::resize(frame, frame, cv::Size{640, 640});
+  //   cv::imshow("frame", frame);
+  //   if (cv::waitKey(30) == 'q') {
+  //     return 1;
+  //   }
+  // }
+
+  auto options = handleOptions(argc, argv);
+  if (!options.configPath) {
+    std::cerr << "Usage: " << argv[0] << " --config <path_to_config>"
+              << std::endl;
+    exit(-1);
+  }
+
+  if (!options.demoMode) {
+    std::cout << "Default: " << argv[0] << " --source image" << std::endl;
+    options.demoMode = DemoMode::ImageDemo;
+  }
+
+  if (!options.frame) {
+    std::cout << "Default: " << argv[0] << " --frame 30" << std::endl;
+    options.frame = 30;
+  }
+
   try {
     // 初始化
-    ConfigParser configParser("../configs/hyx_config.json",
-                              json_required_fields);
+    ConfigParser configParser(options.configPath.value(), json_required_fields);
 
     auto config = configParser.getConfig();
 
     std::unique_ptr<Detector> detector;
-    if (false) {
-      // detector = std::make_unique<VideoDetector>();
-    } else {
-      detector = std::make_unique<CameraDetector>();
-    }
-    // detector = std::make_unique<ImageDetector>();
+    if (options.demoMode == DemoMode::ImageDemo) {
+      detector = std::make_unique<ImageDetector>(std::move(config));
 
-    detector->detectAndSave(config, 0.4);
+    } else if (options.demoMode == DemoMode::VideoDemo) {
+      detector = std::make_unique<VideoDetector>(std::move(config));
+
+    } else if (options.demoMode == DemoMode::CameraDemo) {
+      detector = std::make_unique<CameraDetector>(std::move(config));
+
+    } else {
+      std::cerr << "Error !!!" << std::endl;
+      exit(-1);
+    }
+
+    detector->detect(0.4, true, options.frame.value());
 
   } catch (const cv::Exception &e) {
     std::cout << "cv error: " << e.what() << std::endl;

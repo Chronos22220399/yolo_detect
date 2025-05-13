@@ -6,12 +6,46 @@
 // tools
 #include "../include/JsonChecker.hpp"
 
+struct SourcePaths {
+  std::string imagePath;
+  std::string videoPath;
+  std::string cameraPath;
+};
+
+struct OutputPaths {
+  std::string imagePath;
+  std::string videoPath;
+  std::string cameraPath;
+};
+
 struct Config {
   std::string modelPath;
-  std::string srcsPath;
-  std::string outputsPath;
+  SourcePaths sourcePaths;
+  OutputPaths outputPaths;
   std::vector<std::string> classNames;
 };
+
+// 实现 SourcesPath 的 from_json 函数
+inline void from_json(const nlohmann::json &j, SourcePaths &src) {
+  j.at("image").get_to(src.imagePath);
+  j.at("video").get_to(src.videoPath);
+  j.at("camera").get_to(src.cameraPath);
+}
+
+// 实现 OutputsPath 的 from_json 函数
+inline void from_json(const nlohmann::json &j, OutputPaths &out) {
+  j.at("image").get_to(out.imagePath);
+  j.at("video").get_to(out.videoPath);
+  j.at("camera").get_to(out.cameraPath);
+}
+
+// 实现 Config 的 from_json 函数
+inline void from_json(const nlohmann::json &j, Config &config) {
+  j.at("modelPath").get_to(config.modelPath);
+  j.at("sourcePaths").get_to(config.sourcePaths);
+  j.at("outputPaths").get_to(config.outputPaths);
+  j.at("classNames").get_to(config.classNames);
+}
 
 class ConfigParser {
 public:
@@ -25,10 +59,8 @@ public:
       std::cerr << "json 不能为空" << std::endl;
       exit(-1);
     }
-    return Config{_j.at("modelPath").get<std::string>(),
-                  _j.at("srcsPath").get<std::string>(),
-                  _j.at("outputsPath").get<std::string>(),
-                  _j.at("classNames").get<std::vector<std::string>>()};
+
+    return _j.get<Config>();
   }
 
   void parseJson(const std::string &configFileName,

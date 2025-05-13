@@ -9,68 +9,69 @@
 // tools
 #include "../ConfigParser.hpp"
 #include "../DetectionDrawer.hpp"
-#include "../OnnxModel.hpp"
-#include "../OnnxModelOutputParser.hpp"
 #include "../include/Detector/Detector.hpp"
 
 class CameraDetector : public Detector {
-  virtual void detectAndSave(const Config &config, float conf_threshold = 0.4,
-                             bool showOutput = true) override {
-    auto modelPath = config.modelPath;
-    auto classNames = config.classNames;
+public:
+  CameraDetector(Config &&config) : Detector(std::move(config)), cap(0) {}
 
-    OnnxModel model(config.modelPath);
+  ~CameraDetector() {
+    cap.release();
+    cv::destroyAllWindows();
+  }
 
+  virtual void detect(float conf_threshold = 0.4, bool showOutput = true,
+                      int milsec = 30, bool save = true) override {
     try {
-      cv::VideoCapture cap(0);
-      // cap.set(cv::CAP_PROP_FRAME_WIDTH, 640);
-      // cap.set(cv::CAP_PROP_FRAME_HEIGHT, 640);
+      static cv::Mat output;
+      static float *data;
+      auto cap = setUpVideoCapture();
 
-      if (!cap.isOpened()) {
-        std::cerr << "打开摄像头失败\n";
-        exit(-1);
-      }
-
-      cv::Mat img;
-
-      while (cap.read(img)) {
-        if (img.empty()) {
+      while (cap.read(frame)) {
+        if (frame.empty()) {
           std::cerr << "读取到空图像帧，跳过\n";
           continue;
         }
 
-        auto output = model.output(img, 1.0 / 255, cv::Size{640, 640}, true);
-        auto data = (float *)output.data;
+        if (frame.channels() == 1) {
+          cv::cvtColor(frame, frame, cv::COLOR_GRAY2BGR);
+        }
+
+        output = model->output(frame, 1.0 / 255, cv::Size{640, 640}, true);
+        data = (float *)output.data;
+
         const int rows = 25200;
 
-        OnnxModelOutputParser parser;
         auto results =
-            parser.parse(classNames, data, rows, conf_threshold, img);
+            parser->parse(classNames, data, rows, conf_threshold, frame);
 
-        for (auto result : results) {
-          auto box = result.box;
-          auto class_id = result.class_id;
-          auto confidence = std::to_string(result.confidence);
-          auto color = cv::Scalar{255, 255, 0};
-          std::string label = classNames[class_id] + ": " + confidence;
+        drawOnImage(results, frame);
 
-          DetectionDrawer::draw(img, label, box, color);
-        }
-
-        if (showOutput) {
-          cv::imshow("img", img);
-          if (cv::waitKey(30) == 'q') {
-            break;
-          }
-        }
+        if (this->showOutput(showOutput, frame, milsec))
+          break;
       }
 
-      cap.release();
-      cv::destroyAllWindows();
     } catch (const std::exception &e) {
       std::cerr << "出错: " << e.what() << std::endl;
     }
   }
+
+private:
+  cv::VideoCapture setUpVideoCapture() {
+    // cap.set(cv::CAP_PROP_FRAME_WIDTH, 640);
+    // cap.set(cv::CAP_PROP_FRAME_HEIGHT, 640);
+    // cap.set(cv::CAP_PROP_FPS, 30);
+
+    if (!cap.isOpened()) {
+      std::cerr << "打开摄像头失败\n";
+      exit(-1);
+    }
+    return cap;
+  }
+
+private:
+  cv::VideoCapture cap;
+  cv::Mat frame;
 };
 
 // class CameraDetector : public Detector {

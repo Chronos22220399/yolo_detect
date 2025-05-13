@@ -1,0 +1,209 @@
+{
+	"globsDependent" : 
+	[
+		{
+			"expression" : "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/*.h",
+			"paths" : 
+			[
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detection.h"
+			],
+			"recurse" : true
+		},
+		{
+			"expression" : "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/*.hpp",
+			"paths" : 
+			[
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/ConfigParser.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/DetectionDrawer.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/CameraDetector.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/Detector.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/ImageDetector.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/VideoDetector.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/JsonChecker.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/OnnxModel.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/OnnxModelOutputParser.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp"
+			],
+			"recurse" : true
+		},
+		{
+			"expression" : "/home/Ess/Code/ClassDesign/Example/yolo_detect/src/*.c",
+			"paths" : [],
+			"recurse" : true
+		},
+		{
+			"expression" : "/home/Ess/Code/ClassDesign/Example/yolo_detect/src/*.cc",
+			"paths" : [],
+			"recurse" : true
+		},
+		{
+			"expression" : "/home/Ess/Code/ClassDesign/Example/yolo_detect/src/*.cpp",
+			"paths" : 
+			[
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/src/main.cpp"
+			],
+			"recurse" : true
+		}
+	],
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/Debug/CMakeFiles/4.0.1-dirty/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/Linux-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/Debug/CMakeFiles/4.0.1-dirty/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/Linux.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Compiler/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/Linux-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Linker/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Linker/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Platform/Linker/GNU.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/opencv4/OpenCVConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/opencv4/OpenCVConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/opencv4/OpenCVModules.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/lib/cmake/opencv4/OpenCVModules-release.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "/home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug",
+		"source" : "/home/Ess/Code/ClassDesign/Example/yolo_detect"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 1
+	}
+}

@@ -1,8 +1,7 @@
 #!/bin/bash
 # 基础构建
 
-cmake -B build -G Ninja
-cmake --build build --parallel 16
+cmake -B build
+cmake --build build --parallel $(nproc)
 
-cd build
-./YOLO_QT_DETECTOR
+./build/YOLO_QT_DETECTOR --config configs/yk_config.json --source image --frame 30

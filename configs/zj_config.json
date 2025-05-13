@@ -1,7 +1,15 @@
 {
   "modelPath": "../models/zj_chocolate.onnx",
-  "srcsPath": "../resources/zj/images/chocolate.jpg",
-  "outputsPath": "../resources/zj/outputs/chocolate.jpg",
+  "srcsPath": {
+    {"image", "../resources/zj/images/image.jpg"},
+    {"video", "../resources/zj/videos/video.mp4"},
+    {"camera", "placeholder"},
+  },
+  "outputsPath": {
+    {"image", "../resources/zj/outputs/image.jpg"},
+    {"video", "../resources/zj/outputs/video.mp4"},
+    {"camera", "placeholder"}
+  },
   "classNames": [
     "Dark Almond Nougat",
     "Dark Almonds",

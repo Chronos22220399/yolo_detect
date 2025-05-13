@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug",
+  "command": "/usr/bin/c++  -I/home/Ess/Code/ClassDesign/Example/yolo_detect/include -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o -c /home/Ess/Code/ClassDesign/Example/yolo_detect/src/main.cpp",
+  "file": "/home/Ess/Code/ClassDesign/Example/yolo_detect/src/main.cpp",
+  "output": "CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o"
+}
+]

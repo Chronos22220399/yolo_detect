@@ -1,7 +1,15 @@
 {
   "modelPath": "../models/zyh_num.onnx",
-  "srcsPath": "../resources/zyh/images/777.jpg",
-  "outputsPath": "../resources/zyh/outputs/777.jpg",
+  "srcsPath": {
+    {"image", "../resources/zyh/images/image.jpg"},
+    {"video", "../resources/zyh/videos/video.mp4"},
+    {"camera", "placeholder"},
+  },
+  "outputsPath": {
+    {"image", "../resources/zyh/outputs/image.jpg"},
+    {"video", "../resources/zyh/outputs/video.mp4"},
+    {"camera", "placeholder"}
+  },
   "classNames": [
     "0",
     "1",

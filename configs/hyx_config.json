@@ -1,7 +1,15 @@
 {
   "modelPath": "../models/hyx_teeth.onnx",
-  "srcsPath": "../resources/hyx/images/100.jpg",
-  "outputsPath": "../resources/hyx/outputs/100.jpg",
+  "srcsPath": {
+    {"image", "../resources/hyx/images/image.jpg"},
+    {"video", "../resources/hyx/videos/video.mp4"},
+    {"camera", "placeholder"},
+  },
+  "outputsPath": {
+    {"image", "../resources/hyx/outputs/image.jpg"},
+    {"video", "../resources/hyx/outputs/video.mp4"},
+    {"camera", "placeholder"}
+  },
   "classNames": [
     "cavity",
     "normal"

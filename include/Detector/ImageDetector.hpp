@@ -3,44 +3,32 @@
 #include <opencv2/opencv.hpp>
 // tools
 #include "../ConfigParser.hpp"
-#include "../include/Detector/Detector.hpp"
 #include "../DetectionDrawer.hpp"
-#include "../OnnxModel.hpp"
-#include "../OnnxModelOutputParser.hpp"
+#include "../include/Detector/Detector.hpp"
 
 class ImageDetector : public Detector {
-   virtual void detectAndSave(const Config &config,
-                            float conf_threshold = 0.4, bool showOutput = true) override {
-    auto modelPath = config.modelPath;
-    auto imagePath = config.srcsPath;
-    auto outputPath = config.outputsPath;
-     auto &classNames = config.classNames;
+public:
+  ImageDetector(Config &&config) : Detector(std::move(config)) {}
 
-    auto img = cv::imread(imagePath);
+  virtual void detect(float conf_threshold = 0.4, bool showOutput = true,
+                      int milsec = 30, bool save = true) override {
+    auto imagePath = sourcePaths.imagePath;
+    img = cv::imread(imagePath);
 
-    OnnxModel model(config.modelPath);
-
-    auto output = model.output(img, 1.0 / 255, cv::Size{640, 640}, true);
+    auto output = model->output(img, 1.0 / 255, cv::Size{640, 640}, true);
     auto data = (float *)output.data;
     const int rows = 25200; // 80*80*3 +40*40*3 + 20*20*3
 
-    OnnxModelOutputParser parser;
-    auto results = parser.parse(classNames, data, rows, conf_threshold, img);
+    auto results = parser->parse(classNames, data, rows, conf_threshold, img);
 
-    for (auto result : results) {
-      auto box = result.box;
-      auto class_id = result.class_id;
-      auto confidence = std::to_string(result.confidence);
-      auto color = cv::Scalar{255, 255, 0};
-      std::string label = classNames[class_id] + ": " + confidence;
+    drawOnImage(results, img);
 
-      DetectionDrawer::draw(img, label, box, color);
+    if (save) {
+      cv::imwrite(outputPaths.imagePath, img);
     }
-
-    cv::imwrite(outputPath, img);
-    if (showOutput) {
-      cv::imshow("img", img);
-      cv::waitKey();
-    }
+    this->showOutput(showOutput, img, 0);
   }
+
+private:
+  cv::Mat img;
 };
