@@ -1,5 +1,5 @@
 {
-	"modelPath": "../models/hyx_teeth.onnx",
+	"modelPath": "./models/hyx_teeth.onnx",
 	"sourcePaths": {
 		"image": "./resources/hyx/images/image.jpg",
 		"video": "./resources/hyx/videos/video.mp4",

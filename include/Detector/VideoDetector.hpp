@@ -15,10 +15,11 @@
 
 class VideoDetector : public Detector {
 public:
-  VideoDetector(Config &&config, int frame)
-      : Detector(std::move(config)), frameRate(frame), queue(3) {
+  VideoDetector(Config &&config, int frame, int batchSize = 4)
+      : Detector(std::move(config)), frameRate(frame), queue(batchSize * 2),
+        batchSize(batchSize) {
     running = true;
-    inferThread = std::thread(&VideoDetector::runInference, this);
+    inferThread = std::thread(&VideoDetector::runInferenceSingle, this);
   }
 
   virtual ~VideoDetector() {
@@ -62,9 +63,10 @@ protected:
     }
   }
 
-  void runInference() {
+  void runInferenceSingle() {
     cv::Mat output;
     std::vector<Detection> results;
+    const cv::Size modelSize(640, 640);
     while (running) {
       cv::Mat frame;
       if (!queue.pop(frame))
@@ -73,14 +75,62 @@ protected:
       if (frame.channels() == 1)
         cv::cvtColor(frame, frame, cv::COLOR_GRAY2BGR);
 
-      output =
-          std::move(model->output(frame, 1.0 / 255, cv::Size{640, 640}, true));
+      output = std::move(model->output(frame, 1.0 / 255, modelSize, true));
       float *data = (float *)output.data;
 
       results = std::move(parser->parse(classNames, data, rows, 0.4, frame));
       drawOnImage(results, frame);
 
       showOutput(true, frame, frameRate);
+    }
+  }
+
+  void runInferenceBatch() {
+    std::vector<cv::Mat> batch;
+    const cv::Size modelSize(640, 640);
+
+    while (running) {
+      batch.clear();
+      cv::Mat frame;
+
+      while (batch.size() < batchSize && queue.try_pop(frame)) {
+        if (frame.channels() == 1)
+          cv::cvtColor(frame, frame, cv::COLOR_GRAY2BGR);
+        batch.push_back(frame.clone());
+      }
+
+      if (!batch.empty()) {
+        cv::Mat output = model->output(batch, 1.0 / 255, modelSize, true);
+        float *data = (float *)output.data;
+
+        // 解析输出维度
+        const int total_predictions = output.rows;
+        if (total_predictions % batchSize != 0) {
+          throw std::runtime_error("模型输出维度与批处理大小不匹配");
+        }
+        const int pred_per_image = total_predictions / batch.size();
+
+        for (size_t i = 0; i < batch.size(); ++i) {
+          float *imgData = output.ptr<float>(i * pred_per_image);
+
+          // 解析单个图像结果
+          auto results =
+              parser->parse(classNames, imgData, pred_per_image, 0.4, batch[i]);
+
+          // 绘制检测结果
+          for (const auto &det : results) {
+            DetectionDrawer::draw(batch[i], classNames[det.class_id], det.box,
+                                  cv::Scalar(0, 255, 0));
+          }
+
+          // 显示结果
+          cv::imshow("Detection", batch[i]);
+          if (cv::waitKey(1) == 'q')
+            running = false;
+        }
+      } else {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+      }
     }
   }
 
@@ -99,51 +149,5 @@ protected:
   std::thread inferThread;
   std::atomic<bool> running;
   const int frameRate;
+  const int batchSize;
 };
-
-// class VideoDetector : public Detector {
-// public:
-//   VideoDetector(Config &&config) : Detector(std::move(config)), cap(0) {}
-//
-//   virtual void detect(float conf_threshold, bool showOutput = true,
-//                       bool save = false) override {
-//
-//     try {
-//       setUpVideoCapture();
-//
-//       while (cap.read(frame)) {
-//         if (frame.empty()) {
-//           std::cerr << "读取到空图像帧，跳过\n";
-//           continue;
-//         }
-//
-//         auto output = model->output(frame, 1.0 / 255, cv::Size{640, 640},
-//         true); auto data = (float *)output.data; const int rows = 25200;
-//
-//         auto results =
-//             parser->parse(classNames, data, rows, conf_threshold, frame);
-//
-//         drawOnImage(results, frame);
-//
-//         if (this->showOutput(showOutput, frame))
-//           break;
-//       }
-//       cap.release();
-//       cv::destroyAllWindows();
-//     } catch (const std::exception &e) {
-//       std::cerr << "出错: " << e.what() << std::endl;
-//     }
-//   }
-//
-// private:
-//   void setUpVideoCapture() {
-//     if (!cap.isOpened()) {
-//       std::cerr << "打开摄像头失败\n";
-//       exit(-1);
-//     }
-//   }
-//
-// private:
-//   cv::VideoCapture cap;
-//   cv::Mat frame;
-// };

@@ -21,8 +21,8 @@ public:
     class_ids.reserve(rows);
     boxes.reserve(rows);
 
-    float scale_x = static_cast<float>(srcImg.cols) / 640;
-    float scale_y = static_cast<float>(srcImg.rows) / 640;
+    float scale_x = srcImg.cols / 640.0f;
+    float scale_y = srcImg.rows / 640.0f;
 
     for (int i = 0; i < rows; ++i, data += class_list.size() + 5) {
       float conf = data[4];

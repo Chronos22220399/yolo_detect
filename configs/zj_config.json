@@ -1,5 +1,5 @@
 {
-	"modelPath": "../models/zj_chocolate.onnx",
+	"modelPath": "./models/zj_chocolate.onnx",
 	"sourcePaths": {
 		"image": "./resources/zj/images/image.jpg",
 		"video": "./resources/zj/videos/video.mp4",

@@ -1,5 +1,5 @@
 {
-	"modelPath": "../models/zyh_num.onnx",
+	"modelPath": "./models/zyh_num.onnx",
 	"sourcePaths": {
 		"image": "./resources/zyh/images/image.jpg",
 		"video": "./resources/zyh/videos/video.mp4",
