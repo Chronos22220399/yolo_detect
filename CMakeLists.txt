@@ -44,6 +44,7 @@ option(BUILD_WITH_TENSORRT "Enable TensorRT backend" OFF)
 # 依赖查找
 # find_package(Qt5 COMPONENTS Core Gui Widgets Multimedia MultimediaWidgets Concurrent REQUIRED)
 find_package(OpenCV REQUIRED COMPONENTS core imgproc highgui videoio dnn)
+find_package(Threads REQUIRED)
 
 
 # 可执行目标
@@ -62,5 +63,6 @@ target_include_directories(${PROJECT_NAME}
 # 链接配置
 target_link_libraries(${PROJECT_NAME}
     ${OpenCV_LIBS}
+    Threads::Threads
     # ${ONNXRUNTIME_LIBS}  # 直接链接库
 )
