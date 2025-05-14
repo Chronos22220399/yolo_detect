@@ -13,10 +13,10 @@ protected:
     this->cap.set(cv::CAP_PROP_FRAME_WIDTH, Size);
     this->cap.set(cv::CAP_PROP_FRAME_HEIGHT, Size);
     this->cap.set(cv::CAP_PROP_FPS, this->frameRate);
-    if (this->useYUYV) {
-      this->cap.set(cv::CAP_PROP_FOURCC,
-                    cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V'));
-    }
+    // if (this->useYUYV) {
+    //   this->cap.set(cv::CAP_PROP_FOURCC,
+    //                 cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V'));
+    // }
     if (!this->cap.isOpened()) {
       std::cerr << "打开摄像头失败\n";
       exit(-1);

@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/YOLO_QT_DETECTOR.dir/link.d CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o -o YOLO_QT_DETECTOR  /usr/lib/libopencv_highgui.so.4.11.0 /usr/lib/libopencv_videoio.so.4.11.0 /usr/lib/libopencv_dnn.so.4.11.0 /usr/lib/libopencv_imgcodecs.so.4.11.0 /usr/lib/libopencv_imgproc.so.4.11.0 /usr/lib/libopencv_core.so.4.11.0

@@ -43,6 +43,19 @@ public:
           std::cerr << "读取帧失败，跳过\n";
           continue;
         }
+        if (frame.channels() == 1) {
+          // NV12 格式读取进来是 1 通道，需要专门转换
+          cv::cvtColor(frame, frame, cv::COLOR_YUV2BGR_NV12);
+        } else if (frame.channels() == 2) {
+          cv::cvtColor(frame, frame, cv::COLOR_YUV2BGR_YUY2);
+        } else if (frame.channels() == 3) {
+
+        } else {
+          std::cerr << "Unsupported channel count: " << frame.channels()
+                    << std::endl;
+          return;
+        }
+
         queue.push(frame);
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
       }
@@ -55,9 +68,10 @@ protected:
   virtual void setUpVideoCapture() {
     cap.open(this->sourcePaths.videoPath);
     cap.set(cv::CAP_PROP_FPS, frameRate);
-    if (this->useYUYV) {
-      cap.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V'));
-    }
+    // if (this->useYUYV) {
+    //   cap.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('Y', 'U', 'Y',
+    //   'V'));
+    // }
     if (!cap.isOpened()) {
       std::cerr << "打开视频失败\n";
       exit(-1);
