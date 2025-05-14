@@ -410,6 +410,7 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o: \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/./Model.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/OnnxModelOutputParser.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/./ModelOutputParser.hpp \
+ /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/whiteBalance.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/ImageDetector.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Model/OrtModel.hpp \
  /usr/include/onnxruntime/onnxruntime_cxx_api.h \

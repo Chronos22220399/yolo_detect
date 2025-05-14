@@ -4,6 +4,7 @@
 #include "../include/DetectionDrawer.hpp"
 #include "../include/Model/DnnOnnxModel.hpp"
 #include "../include/Model/OnnxModelOutputParser.hpp"
+#include "../include/whiteBalance.hpp"
 #include <opencv2/opencv.hpp>
 
 inline cv::Mat resizeWithAspectRatio(
@@ -72,7 +73,12 @@ public:
   }
 
   void drawOnImage(const std::vector<Detection> &results, cv::Mat &img) {
+
     auto count = results.size();
+
+    if (this->useYUYV)
+      white_balance(img);
+
     for (auto result : results) {
       auto box = result.box;
       auto class_id = result.class_id;

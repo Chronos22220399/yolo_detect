@@ -28,6 +28,7 @@ set(OLD_GLOB
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/OrtModel.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/whiteBalance.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

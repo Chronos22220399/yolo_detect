@@ -8,6 +8,7 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o: /home/Ess/Code/ClassDesign/Examp
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/ModelOutputParser.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/DnnOnnxModel.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/OnnxModelOutputParser.hpp \
+  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/whiteBalance.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/JsonChecker.hpp \
   /home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp \
@@ -999,6 +1000,8 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/lib/libabsl_cordz_info.so.2501.0.0:
 
+/usr/lib/libabsl_cordz_functions.so.2501.0.0:
+
 /usr/lib/libabsl_decode_rust_punycode.so.2501.0.0:
 
 /usr/include/c++/15.1.1/cstring:
@@ -1064,6 +1067,8 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/include/c++/15.1.1/bits/stl_list.h:
 
 /usr/include/c++/15.1.1/bits/stl_iterator_base_types.h:
+
+/home/Ess/Code/ClassDesign/Example/yolo_detect/include/whiteBalance.hpp:
 
 /usr/lib/libxcb-dri3.so.0:
 
@@ -1249,18 +1254,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
 
-/usr/include/wchar.h:
-
-/usr/lib/libabsl_time_zone.so.2501.0.0:
-
-/usr/include/wctype.h:
-
-/usr/include/c++/15.1.1/any:
-
-/usr/lib/libxkbcommon.so.0:
-
-/usr/include/bits/timesize.h:
-
 /usr/include/c++/15.1.1/array:
 
 /usr/include/bits/math-vector.h:
@@ -1280,6 +1273,18 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/include/bits/errno.h:
 
 /usr/include/opencv4/opencv2/core/mat.hpp:
+
+/usr/lib/libabsl_time_zone.so.2501.0.0:
+
+/usr/include/wctype.h:
+
+/usr/include/wchar.h:
+
+/usr/include/c++/15.1.1/any:
+
+/usr/lib/libxkbcommon.so.0:
+
+/usr/include/bits/timesize.h:
 
 /usr/lib/libbz2.so.1.0:
 
@@ -1333,6 +1338,10 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/bits/types/clockid_t.h:
 
+/usr/lib/libva-x11.so.2:
+
+/usr/include/assert.h:
+
 /usr/lib/libmodplug.so.1:
 
 /home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp:
@@ -1373,15 +1382,11 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/c++/15.1.1/tr1/gamma.tcc:
 
-/usr/lib/libva-x11.so.2:
+/home/Ess/Code/ClassDesign/Example/yolo_detect/include/ConfigParser.hpp:
 
-/usr/include/assert.h:
+/usr/lib/libprotobuf-lite.so.30.2.0:
 
-/usr/include/c++/15.1.1/cwchar:
-
-/usr/include/bits/select.h:
-
-/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/Detector.hpp:
+/usr/include/bits/stdio.h:
 
 /usr/lib/libpgm-5.3.so.0:
 
@@ -1390,36 +1395,6 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/lib/libhwloc.so.15:
 
 /usr/lib/libXdmcp.so.6:
-
-/home/Ess/Code/ClassDesign/Example/yolo_detect/include/ConfigParser.hpp:
-
-/usr/lib/libprotobuf-lite.so.30.2.0:
-
-/usr/include/bits/stdio.h:
-
-/usr/lib/libgstreamer-1.0.so.0:
-
-/usr/include/sys/single_threaded.h:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/c++/15.1.1/bits/node_handle.h:
-
-/usr/lib/libwebpdemux.so.2:
-
-/usr/include/bits/setjmp.h:
-
-/usr/lib/libbluray.so.2:
-
-/usr/include/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/bits/wchar.h:
-
-/usr/include/opencv4/opencv2/core/version.hpp:
-
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/c++/15.1.1/bits/postypes.h:
 
 /home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/Model.hpp:
 
@@ -1433,9 +1408,21 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/c++/15.1.1/fstream:
 
-/usr/include/c++/15.1.1/bits/stl_raw_storage_iter.h:
+/usr/include/bits/select.h:
+
+/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/Detector.hpp:
 
 /usr/include/bits/types/struct_FILE.h:
+
+/usr/include/c++/15.1.1/bits/stl_raw_storage_iter.h:
+
+/usr/lib/libgstreamer-1.0.so.0:
+
+/usr/include/sys/single_threaded.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/c++/15.1.1/bits/node_handle.h:
 
 /home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp:
 
@@ -1481,6 +1468,10 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/asm/bitsperlong.h:
 
+/usr/include/c++/15.1.1/bits/cpp_type_traits.h:
+
+/usr/include/c++/15.1.1/bits/charconv.h:
+
 /usr/include/asm-generic/posix_types.h:
 
 /usr/include/c++/15.1.1/cerrno:
@@ -1497,6 +1488,22 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 
 /usr/include/asm-generic/errno-base.h:
 
+/usr/lib/libwebpdemux.so.2:
+
+/usr/include/bits/setjmp.h:
+
+/usr/lib/libbluray.so.2:
+
+/usr/include/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/opencv4/opencv2/core/version.hpp:
+
+/usr/include/bits/types/timer_t.h:
+
+/usr/include/c++/15.1.1/bits/postypes.h:
+
 /usr/include/c++/15.1.1/bits/range_access.h:
 
 /usr/include/bits/types/error_t.h:
@@ -1512,6 +1519,16 @@ YOLO_QT_DETECTOR: /usr/lib/Scrt1.o \
 /usr/include/bits/stdint-least.h:
 
 /usr/include/c++/15.1.1/bits/atomic_lockfree_defines.h:
+
+/usr/lib/libgsm.so.1:
+
+/usr/lib/libdbus-1.so.3:
+
+/usr/include/c++/15.1.1/bits/fs_path.h:
+
+/usr/include/c++/15.1.1/bits/align.h:
+
+/usr/include/c++/15.1.1/istream:
 
 /usr/lib/libvorbis.so.0:
 
@@ -1691,19 +1708,7 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 
 /usr/include/c++/15.1.1/bits/basic_ios.h:
 
-/usr/include/c++/15.1.1/bits/cpp_type_traits.h:
-
-/usr/lib/libgsm.so.1:
-
-/usr/lib/libdbus-1.so.3:
-
-/usr/include/c++/15.1.1/bits/fs_path.h:
-
-/usr/include/c++/15.1.1/istream:
-
-/usr/include/c++/15.1.1/bits/align.h:
-
-/usr/include/c++/15.1.1/bits/charconv.h:
+/usr/include/c++/15.1.1/cwchar:
 
 /usr/include/onnxruntime/onnxruntime_cxx_inline.h:
 
@@ -2119,9 +2124,9 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 
 /usr/include/opencv4/opencv2/stitching.hpp:
 
-/usr/include/linux/sched/types.h:
-
 /usr/include/c++/15.1.1/cstdint:
+
+/usr/include/linux/sched/types.h:
 
 /usr/include/opencv4/opencv2/stitching/warpers.hpp:
 
@@ -2246,5 +2251,3 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/lib/libabsl_cord.so.2501.0.0:
 
 /usr/lib/libabsl_cord_internal.so.2501.0.0:
-
-/usr/lib/libabsl_cordz_functions.so.2501.0.0:
