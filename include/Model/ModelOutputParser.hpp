@@ -17,5 +17,6 @@ public:
   virtual std::vector<Detection> parse(const class_list_type &class_list,
                                        float *data, int rows,
                                        float conf_threshold,
-                                       const cv::Mat &srcImg) = 0;
+                                       const cv::Mat &srcImg, size_t scale_row,
+                                       size_t scale_col) = 0;
 };

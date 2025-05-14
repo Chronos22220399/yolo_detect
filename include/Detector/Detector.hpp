@@ -6,7 +6,7 @@
 #include "../include/Model/OnnxModelOutputParser.hpp"
 #include <opencv2/opencv.hpp>
 
-class Detector {
+template <size_t Size, size_t Rows> class Detector {
 protected:
   std::string modelPath;
   SourcePaths sourcePaths;
@@ -15,7 +15,7 @@ protected:
   bool useYUYV;
   std::unique_ptr<Model> model;
   std::unique_ptr<ModelOutputParser> parser;
-  const int rows = 25200;
+  const int rows = Rows;
 
 public:
   Detector(Config &&config)

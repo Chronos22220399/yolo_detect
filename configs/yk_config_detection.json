@@ -1,0 +1,15 @@
+{
+	"modelPath": "./models/best.onnx",
+	"sourcePaths": {
+		"image": "./resources/yk/images/image.jpg",
+		"video": "./resources/yk/videos/video.mp4",
+		"camera": "placeholder"
+	},
+	"outputPaths": {
+		"image": "./resources/yk/outputs/image.jpg",
+		"video": "./resources/yk/outputs/video.mp4",
+		"camera": "placeholder"
+	},
+	"classNames": ["Paper", "Rock", "Scissors"],
+	"useYUYV": true
+}

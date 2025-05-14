@@ -13,13 +13,14 @@
 #include "../SafeQueue.hpp"
 #include "../include/Detector/Detector.hpp"
 
-class VideoDetector : public Detector {
+template <size_t Size, size_t Rows>
+class VideoDetector : public Detector<Size, Rows> {
 public:
   VideoDetector(Config &&config, int frame, int batchSize = 4)
-      : Detector(std::move(config)), frameRate(frame), queue(batchSize * 2),
-        batchSize(batchSize) {
+      : Detector<Size, Rows>(std::move(config)), frameRate(frame),
+        queue(batchSize * 2), batchSize(batchSize) {
     running = true;
-    inferThread = std::thread(&VideoDetector::runInferenceSingle, this);
+    inferThread = std::thread(&VideoDetector::runInference, this);
   }
 
   virtual ~VideoDetector() {
@@ -52,9 +53,9 @@ public:
 
 protected:
   virtual void setUpVideoCapture() {
-    cap.open(sourcePaths.videoPath);
+    cap.open(this->sourcePaths.videoPath);
     cap.set(cv::CAP_PROP_FPS, frameRate);
-    if (useYUYV) {
+    if (this->useYUYV) {
       cap.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V'));
     }
     if (!cap.isOpened()) {
@@ -63,10 +64,10 @@ protected:
     }
   }
 
-  void runInferenceSingle() {
+  void runInference() {
     cv::Mat output;
     std::vector<Detection> results;
-    const cv::Size modelSize(640, 640);
+    const cv::Size modelSize(Size, Size);
     while (running) {
       cv::Mat frame;
       if (!queue.pop(frame))
@@ -75,62 +76,15 @@ protected:
       if (frame.channels() == 1)
         cv::cvtColor(frame, frame, cv::COLOR_GRAY2BGR);
 
-      output = std::move(model->output(frame, 1.0 / 255, modelSize, true));
+      output =
+          std::move(this->model->output(frame, 1.0 / 255, modelSize, true));
       float *data = (float *)output.data;
 
-      results = std::move(parser->parse(classNames, data, rows, 0.4, frame));
-      drawOnImage(results, frame);
+      results = std::move(this->parser->parse(
+          this->classNames, data, this->rows, 0.4, frame, Size, Size));
+      this->drawOnImage(results, frame);
 
       showOutput(true, frame, frameRate);
-    }
-  }
-
-  void runInferenceBatch() {
-    std::vector<cv::Mat> batch;
-    const cv::Size modelSize(640, 640);
-
-    while (running) {
-      batch.clear();
-      cv::Mat frame;
-
-      while (batch.size() < batchSize && queue.try_pop(frame)) {
-        if (frame.channels() == 1)
-          cv::cvtColor(frame, frame, cv::COLOR_GRAY2BGR);
-        batch.push_back(frame.clone());
-      }
-
-      if (!batch.empty()) {
-        cv::Mat output = model->output(batch, 1.0 / 255, modelSize, true);
-        float *data = (float *)output.data;
-
-        // 解析输出维度
-        const int total_predictions = output.rows;
-        if (total_predictions % batchSize != 0) {
-          throw std::runtime_error("模型输出维度与批处理大小不匹配");
-        }
-        const int pred_per_image = total_predictions / batch.size();
-
-        for (size_t i = 0; i < batch.size(); ++i) {
-          float *imgData = output.ptr<float>(i * pred_per_image);
-
-          // 解析单个图像结果
-          auto results =
-              parser->parse(classNames, imgData, pred_per_image, 0.4, batch[i]);
-
-          // 绘制检测结果
-          for (const auto &det : results) {
-            DetectionDrawer::draw(batch[i], classNames[det.class_id], det.box,
-                                  cv::Scalar(0, 255, 0));
-          }
-
-          // 显示结果
-          cv::imshow("Detection", batch[i]);
-          if (cv::waitKey(1) == 'q')
-            running = false;
-        }
-      } else {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
-      }
     }
   }
 

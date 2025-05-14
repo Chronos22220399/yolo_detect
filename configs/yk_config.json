@@ -1,5 +1,5 @@
 {
-	"modelPath": "./models/yk_emotion.onnx",
+	"modelPath": "./models/detection.onnx",
 	"sourcePaths": {
 		"image": "./resources/yk/images/image.jpg",
 		"video": "./resources/yk/videos/video.mp4",

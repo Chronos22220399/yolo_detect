@@ -56,7 +56,7 @@ Options handleOptions(int argc, char *argv[]) {
   return options;
 }
 
-int main(int argc, char *argv[]) {
+void run(int argc, char *argv[]) {
   // cv::VideoCapture cap(0);
   // while (!cap.isOpened()) {
   //   std::cerr << "open error" << std::endl;
@@ -91,21 +91,23 @@ int main(int argc, char *argv[]) {
 
   try {
     // 初始化
+    const size_t Size = 320;
+    const size_t Rows = 6300;
     ConfigParser configParser(options.configPath.value(), json_required_fields);
 
     auto config = configParser.getConfig();
 
-    std::unique_ptr<Detector> detector;
+    std::unique_ptr<Detector<Size, Rows>> detector;
     if (options.demoMode == DemoMode::ImageDemo) {
-      detector = std::make_unique<ImageDetector>(std::move(config));
+      detector = std::make_unique<ImageDetector<Size, Rows>>(std::move(config));
 
     } else if (options.demoMode == DemoMode::VideoDemo) {
-      detector = std::make_unique<VideoDetector>(std::move(config),
-                                                 options.frameRate.value());
+      detector = std::make_unique<VideoDetector<Size, Rows>>(
+          std::move(config), options.frameRate.value());
 
     } else if (options.demoMode == DemoMode::CameraDemo) {
-      detector = std::make_unique<CameraDetector>(std::move(config),
-                                                  options.frameRate.value());
+      detector = std::make_unique<CameraDetector<Size, Rows>>(
+          std::move(config), options.frameRate.value());
 
     } else {
       std::cerr << "Error !!!" << std::endl;
@@ -119,5 +121,10 @@ int main(int argc, char *argv[]) {
   } catch (const std::exception &e) {
     std::cout << e.what() << std::endl;
   };
+}
+
+int main(int argc, char *argv[]) {
+  run(argc, argv);
+
   return 0;
 }

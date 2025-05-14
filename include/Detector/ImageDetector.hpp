@@ -6,24 +6,29 @@
 #include "../DetectionDrawer.hpp"
 #include "../include/Detector/Detector.hpp"
 
-class ImageDetector : public Detector {
+template <size_t Size, size_t Rows>
+class ImageDetector : public Detector<Size, Rows> {
 public:
-  ImageDetector(Config &&config) : Detector(std::move(config)) {}
+  ImageDetector(Config &&config) : Detector<Size, Rows>(std::move(config)) {}
 
   virtual void detect(float conf_threshold = 0.4, bool showOutput = true,
                       bool save = true) override {
-    auto imagePath = sourcePaths.imagePath;
+    auto imagePath = this->sourcePaths.imagePath;
     img = cv::imread(imagePath);
 
-    auto output = model->output(img, 1.0 / 255, cv::Size{640, 640}, true);
+    cv::resize(img, img, cv::Size{Size, Size});
+
+    auto output =
+        this->model->output(img, 1.0 / 255, cv::Size{Size, Size}, true);
     auto data = (float *)output.data;
 
-    auto results = parser->parse(classNames, data, rows, conf_threshold, img);
+    auto results = this->parser->parse(this->classNames, data, this->rows,
+                                       conf_threshold, img, Size, Size);
 
-    drawOnImage(results, img);
+    this->drawOnImage(results, img);
 
     if (save) {
-      cv::imwrite(outputPaths.imagePath, img);
+      cv::imwrite(this->outputPaths.imagePath, img);
     }
     this->showOutput(showOutput, img);
   }

@@ -12,7 +12,8 @@ class OnnxModelOutputParser : public ModelOutputParser {
 public:
   std::vector<Detection> parse(const class_list_type &class_list, float *data,
                                int rows, float conf_threshold,
-                               const cv::Mat &srcImg) override {
+                               const cv::Mat &srcImg, size_t scale_row,
+                               size_t scale_col) override {
     std::vector<float> confidences;
     std::vector<int> class_ids;
     std::vector<cv::Rect> boxes;
@@ -21,8 +22,8 @@ public:
     class_ids.reserve(rows);
     boxes.reserve(rows);
 
-    float scale_x = srcImg.cols / 640.0f;
-    float scale_y = srcImg.rows / 640.0f;
+    float scale_x = srcImg.cols / static_cast<float>(scale_col);
+    float scale_y = srcImg.rows / static_cast<float>(scale_row);
 
     for (int i = 0; i < rows; ++i, data += class_list.size() + 5) {
       float conf = data[4];
