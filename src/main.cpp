@@ -91,6 +91,8 @@ void run(int argc, char *argv[]) {
 
   try {
     // 初始化
+    // const size_t Size = 640;
+    // const size_t Rows = 25200;
     const size_t Size = 320;
     const size_t Rows = 6300;
     ConfigParser configParser(options.configPath.value(), json_required_fields);
@@ -114,7 +116,7 @@ void run(int argc, char *argv[]) {
       exit(-1);
     }
 
-    detector->detect(0.4, true, options.frameRate.value());
+    detector->detect(true, options.frameRate.value());
 
   } catch (const cv::Exception &e) {
     std::cout << "cv error: " << e.what() << std::endl;

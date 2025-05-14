@@ -1,5 +1,5 @@
 {
-	"modelPath": "./models/hyx_teeth.onnx",
+	"modelPath": "./models/rock_paper_scissors.onnx",
 	"sourcePaths": {
 		"image": "./resources/hyx/images/image.jpg",
 		"video": "./resources/hyx/videos/video.mp4",
@@ -10,6 +10,7 @@
 		"video": "./resources/hyx/outputs/video.mp4",
 		"camera": "placeholder"
 	},
-	"classNames": ["cavity", "normal"],
-	"useYUYV": true
+	"classNames": ["Paper", "Rock", "Scissors"],
+	"useYUYV": true,
+	"confThreshold": 0.6
 }

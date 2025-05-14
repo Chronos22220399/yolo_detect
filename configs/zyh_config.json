@@ -2,7 +2,7 @@
 	"modelPath": "./models/zyh_num.onnx",
 	"sourcePaths": {
 		"image": "./resources/zyh/images/image.jpg",
-		"video": "./resources/zyh/videos/video.mp4",
+		"video": "./resources/zyh/videos/video1.mp4",
 		"camera": "placeholder"
 	},
 	"outputPaths": {
@@ -11,5 +11,6 @@
 		"camera": "placeholder"
 	},
 	"classNames": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-	"useYUYV": true
+	"useYUYV": true,
+	"confThreshold": 0.4
 }

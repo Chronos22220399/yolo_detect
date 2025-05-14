@@ -24,6 +24,7 @@ struct Config {
   OutputPaths outputPaths;
   std::vector<std::string> classNames;
   bool useYUYV;
+  float confThreshold;
 };
 
 // 实现 SourcesPath 的 from_json 函数
@@ -50,6 +51,7 @@ inline void from_json(const nlohmann::json &j, Config &config) {
     config.useYUYV = false;
   else
     j.at("useYUYV").get_to(config.useYUYV);
+  j.at("confThreshold").get_to(config.confThreshold);
 }
 
 class ConfigParser {

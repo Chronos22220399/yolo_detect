@@ -1,0 +1,3 @@
+/home/Ess/Code/ClassDesign/Example/yolo_detect/build/CMakeFiles/YOLO_QT_DETECTOR.dir
+/home/Ess/Code/ClassDesign/Example/yolo_detect/build/CMakeFiles/edit_cache.dir
+/home/Ess/Code/ClassDesign/Example/yolo_detect/build/CMakeFiles/rebuild_cache.dir

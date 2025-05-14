@@ -17,6 +17,16 @@ public:
     return true;
   }
 
+  bool try_push(const T value) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (queue_.size() >= capacity_) {
+      queue_.pop();
+    }
+    queue_.push(value);
+    cond_.notify_one();
+    return true;
+  }
+
   void push(const T &value) {
     std::unique_lock<std::mutex> lock(mutex_);
     if (queue_.size() >= capacity_) {
@@ -38,6 +48,8 @@ public:
     std::lock_guard<std::mutex> lock(mutex_);
     return queue_.empty();
   }
+
+  size_t size() const { return queue_.size(); }
 
 private:
   mutable std::mutex mutex_;

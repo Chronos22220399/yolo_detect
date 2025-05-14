@@ -34,5 +34,6 @@
 		"Milk Molasses Chips",
 		"Milk Rum Nougat"
 	],
-	"useYUYV": true
+	"useYUYV": true,
+	"confThreshold": 0.4
 }

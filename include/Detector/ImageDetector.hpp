@@ -11,8 +11,7 @@ class ImageDetector : public Detector<Size, Rows> {
 public:
   ImageDetector(Config &&config) : Detector<Size, Rows>(std::move(config)) {}
 
-  virtual void detect(float conf_threshold = 0.4, bool showOutput = true,
-                      bool save = true) override {
+  virtual void detect(bool showOutput = true, bool save = true) override {
     auto imagePath = this->sourcePaths.imagePath;
     img = cv::imread(imagePath);
 
@@ -23,7 +22,7 @@ public:
     auto data = (float *)output.data;
 
     auto results = this->parser->parse(this->classNames, data, this->rows,
-                                       conf_threshold, img, Size, Size);
+                                       this->confThreshold, img, Size, Size);
 
     this->drawOnImage(results, img);
 

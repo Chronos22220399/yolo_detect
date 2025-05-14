@@ -11,5 +11,6 @@
 		"camera": "placeholder"
 	},
 	"classNames": ["Paper", "Rock", "Scissors"],
-	"useYUYV": true
+	"useYUYV": true,
+	"confThreshold": 0.4
 }
