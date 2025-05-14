@@ -14,12 +14,12 @@ public:
 
   ~DnnOnnxModel() = default;
 
-  cv::Mat output(const cv::Mat &batchImg, double ratio, const cv::Size &size,
+  cv::Mat output(const cv::Mat &input, double ratio, const cv::Size &size,
                  bool swapRB) override {
     cv::Mat resizedFrame;
-    cv::resize(batchImg, resizedFrame, size);
+    cv::resize(input, resizedFrame, size);
     cv::Mat blob =
-        cv::dnn::blobFromImage(batchImg, ratio, size, cv::Scalar{}, swapRB);
+        cv::dnn::blobFromImage(input, ratio, size, cv::Scalar{}, swapRB);
 
     // 输入
     net.setInput(blob);
@@ -32,7 +32,7 @@ public:
       int num_detections = output.size[2];
       int det_length = output.size[3];
       // 修复1：使用正确整数参数，计算总行数 = 批次大小 * 检测数量
-      int total_rows = batchImg.rows * num_detections;
+      int total_rows = input.rows * num_detections;
       // 修复2：移除重复的return语句
       return output.reshape(1, total_rows);
     }

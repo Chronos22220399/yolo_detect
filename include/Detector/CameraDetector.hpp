@@ -4,8 +4,10 @@
 template <size_t Size, size_t Rows>
 class CameraDetector : public VideoDetector<Size, Rows> {
 public:
-  CameraDetector(Config &&config, int frame)
-      : VideoDetector<Size, Rows>(std::move(config), frame) {}
+  CameraDetector(Config &&config, std::unique_ptr<Model> model, int frameRate,
+                 int queueLen)
+      : VideoDetector<Size, Rows>(std::move(config), std::move(model),
+                                  frameRate, queueLen) {}
 
 protected:
   void setUpVideoCapture() override {

@@ -20,9 +20,13 @@
 				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/ImageDetector.hpp",
 				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/VideoDetector.hpp",
 				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/JsonChecker.hpp",
-				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/OnnxModel.hpp",
-				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/OnnxModelOutputParser.hpp",
-				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp"
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/DnnOnnxModel.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/DnnOnnxModelOutputParser.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/Model.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/ModelOutputParser.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp",
+				"/home/Ess/Code/ClassDesign/Example/yolo_detect/include/run.hpp"
 			],
 			"recurse" : true
 		},
@@ -193,6 +197,41 @@
 		{
 			"isExternal" : true,
 			"path" : "/usr/lib/cmake/opencv4/OpenCVModules-release.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CheckIncludeFileCXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/share/cmake/Modules/FindPackageMessage.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

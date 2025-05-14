@@ -271,3 +271,41 @@ events:
       Running the CXX compiler's linker: "/usr/bin/ld" "-v"
       GNU ld (GNU Binutils) 2.44.0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:99 (check_cxx_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "CMakeLists.txt:47 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug/CMakeFiles/CMakeScratch/TryCompile-evLSS5"
+      binary: "/home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug/CMakeFiles/CMakeScratch/TryCompile-evLSS5"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug/CMakeFiles/CMakeScratch/TryCompile-evLSS5'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_455f4/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_455f4.dir/build.make CMakeFiles/cmTC_455f4.dir/build
+        make[1]: Entering directory '/home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug/CMakeFiles/CMakeScratch/TryCompile-evLSS5'
+        Building CXX object CMakeFiles/cmTC_455f4.dir/src.cxx.o
+        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++17 -o CMakeFiles/cmTC_455f4.dir/src.cxx.o -c /home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug/CMakeFiles/CMakeScratch/TryCompile-evLSS5/src.cxx
+        Linking CXX executable cmTC_455f4
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_455f4.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_455f4.dir/src.cxx.o -o cmTC_455f4
+        make[1]: Leaving directory '/home/Ess/Code/ClassDesign/Example/yolo_detect/out/Debug/CMakeFiles/CMakeScratch/TryCompile-evLSS5'
+        
+      exitCode: 0
+...

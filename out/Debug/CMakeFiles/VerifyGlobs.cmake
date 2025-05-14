@@ -21,9 +21,13 @@ set(OLD_GLOB
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/ImageDetector.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/VideoDetector.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/JsonChecker.hpp"
-  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/OnnxModel.hpp"
-  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/OnnxModelOutputParser.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/DnnOnnxModel.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/DnnOnnxModelOutputParser.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/Model.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/ModelOutputParser.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/run.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

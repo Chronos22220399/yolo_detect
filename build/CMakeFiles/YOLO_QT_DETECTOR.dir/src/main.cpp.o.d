@@ -406,8 +406,14 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o: \
  /usr/include/c++/15.1.1/condition_variable \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Detector/Detector.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Detection.h \
- /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/OnnxModel.hpp \
+ /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/DnnOnnxModel.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/./Model.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/OnnxModelOutputParser.hpp \
  /home/Ess/Code/ClassDesign/Example/yolo_detect/include/../include/Model/./ModelOutputParser.hpp \
- /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/ImageDetector.hpp
+ /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Detector/ImageDetector.hpp \
+ /home/Ess/Code/ClassDesign/Example/yolo_detect/src/../include/Model/OrtModel.hpp \
+ /usr/include/onnxruntime/onnxruntime_cxx_api.h \
+ /usr/include/onnxruntime/onnxruntime_c_api.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdbool.h \
+ /usr/include/onnxruntime/onnxruntime_float16.h \
+ /usr/include/onnxruntime/onnxruntime_cxx_inline.h

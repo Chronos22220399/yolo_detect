@@ -99,6 +99,7 @@ YOLO_QT_DETECTOR: CMakeFiles/YOLO_QT_DETECTOR.dir/compiler_depend.ts
 YOLO_QT_DETECTOR: /usr/lib/libopencv_highgui.so.4.11.0
 YOLO_QT_DETECTOR: /usr/lib/libopencv_videoio.so.4.11.0
 YOLO_QT_DETECTOR: /usr/lib/libopencv_dnn.so.4.11.0
+YOLO_QT_DETECTOR: /usr/lib/libonnxruntime.so
 YOLO_QT_DETECTOR: /usr/lib/libopencv_imgcodecs.so.4.11.0
 YOLO_QT_DETECTOR: /usr/lib/libopencv_imgproc.so.4.11.0
 YOLO_QT_DETECTOR: /usr/lib/libopencv_core.so.4.11.0

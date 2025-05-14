@@ -21,10 +21,11 @@ set(OLD_GLOB
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/ImageDetector.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Detector/VideoDetector.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/JsonChecker.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/DnnOnnxModel.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/Model.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/ModelOutputParser.hpp"
-  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/OnnxModel.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/OnnxModelOutputParser.hpp"
+  "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/Model/OrtModel.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/SafeQueue.hpp"
   "/home/Ess/Code/ClassDesign/Example/yolo_detect/include/nlohmann/json.hpp"
   )

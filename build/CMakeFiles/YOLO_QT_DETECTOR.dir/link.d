@@ -6,6 +6,7 @@ YOLO_QT_DETECTOR: \
   /usr/lib/libopencv_highgui.so.4.11.0 \
   /usr/lib/libopencv_videoio.so.4.11.0 \
   /usr/lib/libopencv_dnn.so.4.11.0 \
+  /usr/lib/libonnxruntime.so \
   /usr/lib/libopencv_imgcodecs.so.4.11.0 \
   /usr/lib/libopencv_imgproc.so.4.11.0 \
   /usr/lib/libopencv_core.so.4.11.0 \
@@ -60,6 +61,21 @@ YOLO_QT_DETECTOR: \
   /usr/lib/libabsl_hash.so.2501.0.0 \
   /usr/lib/libabsl_hash.so.2501.0.0 \
   /usr/lib/ld-linux-x86-64.so.2 \
+  /usr/lib/libprotobuf-lite.so.30.2.0 \
+  /usr/lib/libmpi.so.40 \
+  /usr/lib/libnsync_cpp.so.1 \
+  /usr/lib/libabsl_raw_hash_set.so.2501.0.0 \
+  /usr/lib/libabsl_log_internal_check_op.so.2501.0.0 \
+  /usr/lib/libabsl_str_format_internal.so.2501.0.0 \
+  /usr/lib/libabsl_synchronization.so.2501.0.0 \
+  /usr/lib/libabsl_log_internal_nullguard.so.2501.0.0 \
+  /usr/lib/libabsl_strings.so.2501.0.0 \
+  /usr/lib/libabsl_spinlock_wait.so.2501.0.0 \
+  /usr/lib/libabsl_throw_delegate.so.2501.0.0 \
+  /usr/lib/libabsl_throw_delegate.so.2501.0.0 \
+  /usr/lib/libabsl_throw_delegate.so.2501.0.0 \
+  /usr/lib/libabsl_throw_delegate.so.2501.0.0 \
+  /usr/lib/libabsl_raw_logging_internal.so.2501.0.0 \
   /usr/lib/libjpeg.so.8 \
   /usr/lib/libwebp.so.7 \
   /usr/lib/libwebpmux.so.3 \
@@ -145,26 +161,15 @@ YOLO_QT_DETECTOR: \
   /usr/lib/libabsl_die_if_null.so.2501.0.0 \
   /usr/lib/libabsl_statusor.so.2501.0.0 \
   /usr/lib/libutf8_validity.so.30.2.0 \
-  /usr/lib/libabsl_log_internal_check_op.so.2501.0.0 \
   /usr/lib/libabsl_log_internal_conditions.so.2501.0.0 \
   /usr/lib/libabsl_log_internal_conditions.so.2501.0.0 \
   /usr/lib/libabsl_log_internal_conditions.so.2501.0.0 \
-  /usr/lib/libabsl_log_internal_nullguard.so.2501.0.0 \
-  /usr/lib/libabsl_raw_hash_set.so.2501.0.0 \
   /usr/lib/libabsl_status.so.2501.0.0 \
   /usr/lib/libabsl_cord.so.2501.0.0 \
   /usr/lib/libabsl_cordz_info.so.2501.0.0 \
   /usr/lib/libabsl_cord_internal.so.2501.0.0 \
-  /usr/lib/libabsl_synchronization.so.2501.0.0 \
   /usr/lib/libabsl_time.so.2501.0.0 \
   /usr/lib/libabsl_time_zone.so.2501.0.0 \
-  /usr/lib/libabsl_str_format_internal.so.2501.0.0 \
-  /usr/lib/libabsl_strings.so.2501.0.0 \
-  /usr/lib/libabsl_spinlock_wait.so.2501.0.0 \
-  /usr/lib/libabsl_throw_delegate.so.2501.0.0 \
-  /usr/lib/libabsl_throw_delegate.so.2501.0.0 \
-  /usr/lib/libabsl_throw_delegate.so.2501.0.0 \
-  /usr/lib/libabsl_raw_logging_internal.so.2501.0.0 \
   /usr/lib/libabsl_examine_stack.so.2501.0.0 \
   /usr/lib/libabsl_log_internal_format.so.2501.0.0 \
   /usr/lib/libabsl_log_internal_structured_proto.so.2501.0.0 \
@@ -178,6 +183,21 @@ YOLO_QT_DETECTOR: \
   /usr/lib/libabsl_base.so.2501.0.0 \
   /usr/lib/libabsl_city.so.2501.0.0 \
   /usr/lib/libabsl_low_level_hash.so.2501.0.0 \
+  /usr/lib/libopen-pal.so.80 \
+  /usr/lib/libfabric.so.1 \
+  /usr/lib/libucp.so.0 \
+  /usr/lib/libucs.so.0 \
+  /usr/lib/libevent_core-2.1.so.7 \
+  /usr/lib/libevent_pthreads-2.1.so.7 \
+  /usr/lib/libhwloc.so.15 \
+  /usr/lib/libpmix.so.2 \
+  /usr/lib/libabsl_leak_check.so.2501.0.0 \
+  /usr/lib/libabsl_int128.so.2501.0.0 \
+  /usr/lib/libabsl_kernel_timeout_internal.so.2501.0.0 \
+  /usr/lib/libabsl_stacktrace.so.2501.0.0 \
+  /usr/lib/libabsl_tracing_internal.so.2501.0.0 \
+  /usr/lib/libabsl_malloc_internal.so.2501.0.0 \
+  /usr/lib/libabsl_strings_internal.so.2501.0.0 \
   /usr/lib/libsharpyuv.so.0 \
   /usr/lib/libjbig.so.2.1 \
   /usr/lib/libIlmThread-3_3.so.32 \
@@ -225,22 +245,21 @@ YOLO_QT_DETECTOR: \
   /usr/lib/libXfixes.so.3 \
   /usr/lib/libX11-xcb.so.1 \
   /usr/lib/libxcb-dri3.so.0 \
-  /usr/lib/libabsl_leak_check.so.2501.0.0 \
   /usr/lib/libabsl_crc_cord_state.so.2501.0.0 \
   /usr/lib/libabsl_cordz_functions.so.2501.0.0 \
   /usr/lib/libabsl_cordz_functions.so.2501.0.0 \
   /usr/lib/libabsl_cordz_functions.so.2501.0.0 \
   /usr/lib/libabsl_cordz_handle.so.2501.0.0 \
-  /usr/lib/libabsl_stacktrace.so.2501.0.0 \
-  /usr/lib/libabsl_kernel_timeout_internal.so.2501.0.0 \
-  /usr/lib/libabsl_tracing_internal.so.2501.0.0 \
-  /usr/lib/libabsl_malloc_internal.so.2501.0.0 \
-  /usr/lib/libabsl_int128.so.2501.0.0 \
-  /usr/lib/libabsl_strings_internal.so.2501.0.0 \
   /usr/lib/libabsl_symbolize.so.2501.0.0 \
   /usr/lib/libabsl_log_sink.so.2501.0.0 \
   /usr/lib/libabsl_log_sink.so.2501.0.0 \
   /usr/lib/libabsl_log_sink.so.2501.0.0 \
+  /usr/lib/libucm.so.0 \
+  /usr/lib/libuct.so.0 \
+  /usr/lib/libnuma.so.1 \
+  /usr/lib/libsframe.so.1 \
+  /usr/lib/libudev.so.1 \
+  /usr/lib/libabsl_debugging_internal.so.2501.0.0 \
   /usr/lib/libdeflate.so.0 \
   /usr/lib/libXau.so.6 \
   /usr/lib/libXdmcp.so.6 \
@@ -253,7 +272,6 @@ YOLO_QT_DETECTOR: \
   /usr/lib/libabsl_exponential_biased.so.2501.0.0 \
   /usr/lib/libabsl_exponential_biased.so.2501.0.0 \
   /usr/lib/libabsl_exponential_biased.so.2501.0.0 \
-  /usr/lib/libabsl_debugging_internal.so.2501.0.0 \
   /usr/lib/libabsl_demangle_internal.so.2501.0.0 \
   /usr/lib/libblkid.so.1 \
   /usr/lib/libdatrie.so.1 \
@@ -275,6 +293,8 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/lib/libopencv_videoio.so.4.11.0:
 
 /usr/lib/libopencv_dnn.so.4.11.0:
+
+/usr/lib/libonnxruntime.so:
 
 /usr/lib/libopencv_imgcodecs.so.4.11.0:
 
@@ -383,6 +403,36 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/lib/libabsl_hash.so.2501.0.0:
 
 /usr/lib/ld-linux-x86-64.so.2:
+
+/usr/lib/libprotobuf-lite.so.30.2.0:
+
+/usr/lib/libmpi.so.40:
+
+/usr/lib/libnsync_cpp.so.1:
+
+/usr/lib/libabsl_raw_hash_set.so.2501.0.0:
+
+/usr/lib/libabsl_log_internal_check_op.so.2501.0.0:
+
+/usr/lib/libabsl_str_format_internal.so.2501.0.0:
+
+/usr/lib/libabsl_synchronization.so.2501.0.0:
+
+/usr/lib/libabsl_log_internal_nullguard.so.2501.0.0:
+
+/usr/lib/libabsl_strings.so.2501.0.0:
+
+/usr/lib/libabsl_spinlock_wait.so.2501.0.0:
+
+/usr/lib/libabsl_throw_delegate.so.2501.0.0:
+
+/usr/lib/libabsl_throw_delegate.so.2501.0.0:
+
+/usr/lib/libabsl_throw_delegate.so.2501.0.0:
+
+/usr/lib/libabsl_throw_delegate.so.2501.0.0:
+
+/usr/lib/libabsl_raw_logging_internal.so.2501.0.0:
 
 /usr/lib/libjpeg.so.8:
 
@@ -554,17 +604,11 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 
 /usr/lib/libutf8_validity.so.30.2.0:
 
-/usr/lib/libabsl_log_internal_check_op.so.2501.0.0:
-
 /usr/lib/libabsl_log_internal_conditions.so.2501.0.0:
 
 /usr/lib/libabsl_log_internal_conditions.so.2501.0.0:
 
 /usr/lib/libabsl_log_internal_conditions.so.2501.0.0:
-
-/usr/lib/libabsl_log_internal_nullguard.so.2501.0.0:
-
-/usr/lib/libabsl_raw_hash_set.so.2501.0.0:
 
 /usr/lib/libabsl_status.so.2501.0.0:
 
@@ -574,25 +618,9 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 
 /usr/lib/libabsl_cord_internal.so.2501.0.0:
 
-/usr/lib/libabsl_synchronization.so.2501.0.0:
-
 /usr/lib/libabsl_time.so.2501.0.0:
 
 /usr/lib/libabsl_time_zone.so.2501.0.0:
-
-/usr/lib/libabsl_str_format_internal.so.2501.0.0:
-
-/usr/lib/libabsl_strings.so.2501.0.0:
-
-/usr/lib/libabsl_spinlock_wait.so.2501.0.0:
-
-/usr/lib/libabsl_throw_delegate.so.2501.0.0:
-
-/usr/lib/libabsl_throw_delegate.so.2501.0.0:
-
-/usr/lib/libabsl_throw_delegate.so.2501.0.0:
-
-/usr/lib/libabsl_raw_logging_internal.so.2501.0.0:
 
 /usr/lib/libabsl_examine_stack.so.2501.0.0:
 
@@ -619,6 +647,36 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/lib/libabsl_city.so.2501.0.0:
 
 /usr/lib/libabsl_low_level_hash.so.2501.0.0:
+
+/usr/lib/libopen-pal.so.80:
+
+/usr/lib/libfabric.so.1:
+
+/usr/lib/libucp.so.0:
+
+/usr/lib/libucs.so.0:
+
+/usr/lib/libevent_core-2.1.so.7:
+
+/usr/lib/libevent_pthreads-2.1.so.7:
+
+/usr/lib/libhwloc.so.15:
+
+/usr/lib/libpmix.so.2:
+
+/usr/lib/libabsl_leak_check.so.2501.0.0:
+
+/usr/lib/libabsl_int128.so.2501.0.0:
+
+/usr/lib/libabsl_kernel_timeout_internal.so.2501.0.0:
+
+/usr/lib/libabsl_stacktrace.so.2501.0.0:
+
+/usr/lib/libabsl_tracing_internal.so.2501.0.0:
+
+/usr/lib/libabsl_malloc_internal.so.2501.0.0:
+
+/usr/lib/libabsl_strings_internal.so.2501.0.0:
 
 /usr/lib/libsharpyuv.so.0:
 
@@ -714,8 +772,6 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 
 /usr/lib/libxcb-dri3.so.0:
 
-/usr/lib/libabsl_leak_check.so.2501.0.0:
-
 /usr/lib/libabsl_crc_cord_state.so.2501.0.0:
 
 /usr/lib/libabsl_cordz_functions.so.2501.0.0:
@@ -726,18 +782,6 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 
 /usr/lib/libabsl_cordz_handle.so.2501.0.0:
 
-/usr/lib/libabsl_stacktrace.so.2501.0.0:
-
-/usr/lib/libabsl_kernel_timeout_internal.so.2501.0.0:
-
-/usr/lib/libabsl_tracing_internal.so.2501.0.0:
-
-/usr/lib/libabsl_malloc_internal.so.2501.0.0:
-
-/usr/lib/libabsl_int128.so.2501.0.0:
-
-/usr/lib/libabsl_strings_internal.so.2501.0.0:
-
 /usr/lib/libabsl_symbolize.so.2501.0.0:
 
 /usr/lib/libabsl_log_sink.so.2501.0.0:
@@ -745,6 +789,18 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/lib/libabsl_log_sink.so.2501.0.0:
 
 /usr/lib/libabsl_log_sink.so.2501.0.0:
+
+/usr/lib/libucm.so.0:
+
+/usr/lib/libuct.so.0:
+
+/usr/lib/libnuma.so.1:
+
+/usr/lib/libsframe.so.1:
+
+/usr/lib/libudev.so.1:
+
+/usr/lib/libabsl_debugging_internal.so.2501.0.0:
 
 /usr/lib/libdeflate.so.0:
 
@@ -769,8 +825,6 @@ CMakeFiles/YOLO_QT_DETECTOR.dir/src/main.cpp.o:
 /usr/lib/libabsl_exponential_biased.so.2501.0.0:
 
 /usr/lib/libabsl_exponential_biased.so.2501.0.0:
-
-/usr/lib/libabsl_debugging_internal.so.2501.0.0:
 
 /usr/lib/libabsl_demangle_internal.so.2501.0.0:
 

@@ -18,9 +18,10 @@ class VideoDetector : public Detector<Size, Rows> {
   using clock = std::chrono::steady_clock;
 
 public:
-  VideoDetector(Config &&config, int frame, int batchSize = 4)
-      : Detector<Size, Rows>(std::move(config)), frameRate(frame),
-        queue(batchSize * 2), batchSize(batchSize) {
+  VideoDetector(Config &&config, std::unique_ptr<Model> model, size_t frameRate,
+                size_t queueLen)
+      : Detector<Size, Rows>(std::move(config), std::move(model)),
+        frameRate(frameRate), queueLen(queueLen) {
     running.store(true, std::memory_order_release);
     inferThread = std::thread(&VideoDetector::runInference, this);
   }
@@ -62,7 +63,7 @@ public:
       lastFrameTime = clock::now(); // 更新时间戳
 
       // 动态调整队列容量
-      if (queue.size() > batchSize * 4) {
+      if (queue.size() > this->queueLen) {
         std::this_thread::sleep_for(targetInterval * 2);
       }
     }
@@ -133,7 +134,7 @@ protected:
   SafeQueue<cv::Mat> queue;
   std::thread inferThread;
   std::atomic<bool> running;
-  const int frameRate;
-  const int batchSize;
+  const size_t frameRate;
+  const size_t queueLen;
   std::chrono::time_point<clock> lastFrameTime;
 };

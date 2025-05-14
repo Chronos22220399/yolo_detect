@@ -10,6 +10,7 @@
 #include "../include/Detector/ImageDetector.hpp"
 #include "../include/Detector/VideoDetector.hpp"
 #include "../include/JsonChecker.hpp"
+#include "../include/Model/OrtModel.hpp"
 
 using namespace cv;
 
@@ -57,21 +58,6 @@ Options handleOptions(int argc, char *argv[]) {
 }
 
 void run(int argc, char *argv[]) {
-  // cv::VideoCapture cap(0);
-  // while (!cap.isOpened()) {
-  //   std::cerr << "open error" << std::endl;
-  //   exit(-1);
-  // }
-  //
-  // cv::Mat frame;
-  // while (cap.read(frame)) {
-  //   cv::resize(frame, frame, cv::Size{640, 640});
-  //   cv::imshow("frame", frame);
-  //   if (cv::waitKey(30) == 'q') {
-  //     return 1;
-  //   }
-  // }
-
   auto options = handleOptions(argc, argv);
   if (!options.configPath) {
     std::cerr << "Usage: " << argv[0] << " --config <path_to_config>"
@@ -91,25 +77,33 @@ void run(int argc, char *argv[]) {
 
   try {
     // 初始化
-    // const size_t Size = 640;
-    // const size_t Rows = 25200;
-    const size_t Size = 320;
-    const size_t Rows = 6300;
+    const size_t Size = 640;
+    const size_t Rows = 25200;
+    // const size_t Size = 320;
+    // const size_t Rows = 6300;
+    const size_t queueLen = 8;
     ConfigParser configParser(options.configPath.value(), json_required_fields);
+
+    auto modelPath = configParser.getConfig();
+
+    auto model = std::make_unique<DnnOnnxModel>(modelPath.modelPath);
 
     auto config = configParser.getConfig();
 
     std::unique_ptr<Detector<Size, Rows>> detector;
     if (options.demoMode == DemoMode::ImageDemo) {
-      detector = std::make_unique<ImageDetector<Size, Rows>>(std::move(config));
+      detector = std::make_unique<ImageDetector<Size, Rows>>(std::move(config),
+                                                             std::move(model));
 
     } else if (options.demoMode == DemoMode::VideoDemo) {
       detector = std::make_unique<VideoDetector<Size, Rows>>(
-          std::move(config), options.frameRate.value());
+          std::move(config), std::move(model), options.frameRate.value(),
+          queueLen);
 
     } else if (options.demoMode == DemoMode::CameraDemo) {
       detector = std::make_unique<CameraDetector<Size, Rows>>(
-          std::move(config), options.frameRate.value());
+          std::move(config), std::move(model), options.frameRate.value(),
+          queueLen);
 
     } else {
       std::cerr << "Error !!!" << std::endl;
@@ -127,6 +121,5 @@ void run(int argc, char *argv[]) {
 
 int main(int argc, char *argv[]) {
   run(argc, argv);
-
   return 0;
 }

@@ -9,7 +9,8 @@
 template <size_t Size, size_t Rows>
 class ImageDetector : public Detector<Size, Rows> {
 public:
-  ImageDetector(Config &&config) : Detector<Size, Rows>(std::move(config)) {}
+  ImageDetector(Config &&config, std::unique_ptr<Model> model)
+      : Detector<Size, Rows>(std::move(config), std::move(model)) {}
 
   virtual void detect(bool showOutput = true, bool save = true) override {
     auto imagePath = this->sourcePaths.imagePath;

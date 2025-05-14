@@ -3,7 +3,7 @@
 #include "../include/Detection.h"
 #include "../include/DetectionDrawer.hpp"
 #include "../include/Model/DnnOnnxModel.hpp"
-#include "../include/Model/DnnOnnxModelOutputParser.hpp"
+#include "../include/Model/OnnxModelOutputParser.hpp"
 #include <opencv2/opencv.hpp>
 
 inline cv::Mat resizeWithAspectRatio(
@@ -49,13 +49,12 @@ protected:
   const float confThreshold;
 
 public:
-  Detector(Config &&config)
+  Detector(Config &&config, std::unique_ptr<Model> model)
       : modelPath(std::move(config.modelPath)),
         sourcePaths(std::move(config.sourcePaths)),
         outputPaths(std::move(config.outputPaths)),
         classNames(std::move(config.classNames)), useYUYV(config.useYUYV),
-        confThreshold(config.confThreshold) {
-    this->model = std::make_unique<DnnOnnxModel>(modelPath);
+        confThreshold(config.confThreshold), model(std::move(model)) {
     this->parser = std::make_unique<DnnOnnxModelOutputParser>();
   }
 
